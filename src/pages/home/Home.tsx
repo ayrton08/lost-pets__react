@@ -5,12 +5,5 @@ import { useRecoilValue } from "recoil";
 import css from "./home.css";
 
 export function Home() {
-  return (
-    <div>
-      Data
-      <Link to="/login">
-        <button>Ir a Login</button>
-      </Link>
-    </div>
-  );
+  return <div className={css.root}>Home</div>;
 }
