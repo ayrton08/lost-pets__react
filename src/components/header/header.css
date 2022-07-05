@@ -1,0 +1,16 @@
+.root {
+  background-color: #e8daef;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.menu {
+  font-size: 30px;
+  cursor: pointer;
+}
