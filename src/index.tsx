@@ -8,8 +8,6 @@ import { RecoilRoot } from "recoil";
 const rootElement = document.querySelector(".root");
 const root = createRoot(rootElement);
 
-// export const MyContext = React.createContext({ username: "" });
-
 root.render(
   <Suspense>
     <RecoilRoot>
@@ -19,11 +17,3 @@ root.render(
     </RecoilRoot>
   </Suspense>
 );
-
-// root.render(
-//   <MyContext.Provider value={{ username: "Ayrton" }}>
-//   <BrowserRouter>
-//     <AppRoutes />
-//   </BrowserRouter>
-//   </MyContext.Provider>
-// );

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Outlet } from "react-router-dom";
-import css from "./layout.css";
+import css from "./login.css";
 
 export function LoginForm() {
   return (
-    <form>
+    <form className={css.root}>
       <label>
         <h3>Email</h3>
         <input />
