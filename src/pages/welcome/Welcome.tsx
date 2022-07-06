@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useContext, Suspense } from "react";
 import { Link } from "react-router-dom";
-import { nameState } from "../../hooks/atoms";
-import { useRecoilValue } from "recoil";
 import css from "./welcome.css";
 
 export function Welcome() {
@@ -15,7 +13,7 @@ export function Welcome() {
 
   return (
     <div className={css.root}>
-      <h3>¡Welcome!</h3>
+      <h3>¡Welcome! </h3>
       <span>
         To see the pets reported near you... we need permission to know your
         location
