@@ -1,9 +1,28 @@
 import React, { useState, useEffect, useContext, Suspense } from "react";
-import { Link } from "react-router-dom";
-import { nameState } from "../../hooks/atoms";
-import { useRecoilValue } from "recoil";
 import css from "./home.css";
+import { useResultsPets } from "../../hooks/useResultsPets";
+import { ResultsPets } from "../../components/results-pets";
 
 export function Home() {
-  return <div className={css.root}>Home</div>;
+  const results = useResultsPets();
+
+  return (
+    <div className={css.root}>
+      Home
+      <div>
+        {results.length === 0
+          ? null
+          : results.map((r) => {
+              return (
+                <ResultsPets key={r.objectID}
+                  pictureURL={r.pictureURL}
+                  name={r.name}
+                  raza={r.raza}
+                  location={r.location}
+                />
+              );
+            })}
+      </div>
+    </div>
+  );
 }

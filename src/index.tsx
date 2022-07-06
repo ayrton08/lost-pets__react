@@ -8,11 +8,9 @@ const rootElement = document.querySelector(".root");
 const root = createRoot(rootElement);
 
 root.render(
-  <Suspense fallback={<div>Loading...</div>}>
-    <RecoilRoot>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-    </RecoilRoot>
-  </Suspense>
+  <RecoilRoot>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  </RecoilRoot>
 );

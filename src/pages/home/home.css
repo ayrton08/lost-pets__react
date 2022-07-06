@@ -3,6 +3,9 @@
   flex-direction: column;
   text-align: center;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   height: 100vh;
+  background-color: #181817;
+  color: antiquewhite;
 }

@@ -1,15 +1,9 @@
 import React, { useState, useEffect, useContext, Suspense } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import css from "./welcome.css";
 
 export function Welcome() {
-  function location() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const lat = position.coords.latitude;
-      const lng = position.coords.longitude;
-      console.log(lat, lng);
-    });
-  }
+  
 
   return (
     <div className={css.root}>
@@ -19,7 +13,7 @@ export function Welcome() {
         location
       </span>
       <Link to="/home">
-        <button onClick={location}>Give Location</button>
+        <button>Give Location</button>
       </Link>
       <Link to="/login">
         <button>Login</button>

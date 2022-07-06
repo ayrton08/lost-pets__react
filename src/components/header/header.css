@@ -15,3 +15,9 @@
   font-size: 30px;
   cursor: pointer;
 }
+
+.links {
+  color: #cfd8dc;
+  text-decoration: none;
+  font-size: 20px;
+}
