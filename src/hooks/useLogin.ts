@@ -17,7 +17,6 @@ export async function useLogin(email: String, password: String) {
     }
   );
   if (loginFetch.status === 400) {
-    console.log("entre en el error");
     return null
   }
   const res = await loginFetch.json();

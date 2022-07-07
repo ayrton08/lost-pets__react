@@ -24,6 +24,10 @@
 
 .links:hover {
   color: #f5b041;
+  box-shadow: 0 0 25px #4f9, inset 2px 0 20px #4f9;
+  padding: 5px;
+  border: 0;
+  border-radius: 7px;
 }
 
 .btn {

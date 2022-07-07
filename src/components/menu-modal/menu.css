@@ -38,3 +38,8 @@
   border: none;
   cursor: pointer;
 }
+.close:hover {
+  box-shadow: 0 0 20px orange, inset 0 0 15px 10px orange;
+  background-color: orange;
+  border-radius: 30px;
+}

@@ -1,9 +1,20 @@
-import React, { useState, useEffect, useContext, Suspense } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import css from "./welcome.css";
+import { useDataUser } from "../../hooks/useDataUser";
+import { loginState } from "../../hooks/useDataUser";
+import { useRecoilState } from "recoil";
+import { ButtonGeneric } from "../../ui/buttons-generic/button-generic";
 
 export function Welcome() {
-  
+  const [stateUser, setStateUser] = useRecoilState(loginState);
+
+  useEffect(() => {
+    useDataUser().then((data) => {
+      setStateUser(data);
+    });
+  }, []);
+  console.log("state User", stateUser);
 
   return (
     <div className={css.root}>
@@ -13,13 +24,13 @@ export function Welcome() {
         location
       </span>
       <Link to="/home">
-        <button>Give Location</button>
+        <ButtonGeneric>Search</ButtonGeneric>
       </Link>
       <Link to="/login">
-        <button>Login</button>
+        <ButtonGeneric>Login</ButtonGeneric>
       </Link>
       <Link to="/register">
-        <button>Register</button>
+        <ButtonGeneric>Register</ButtonGeneric>
       </Link>
     </div>
   );
