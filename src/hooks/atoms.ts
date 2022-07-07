@@ -1,7 +1,7 @@
 import { atom, selector } from "recoil";
 
 export const userState = atom({
-  key: "textState",
+  key: "text",
   default: {
     name: "Ayrton",
     apellido: "Juarez",
