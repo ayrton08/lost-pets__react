@@ -13,7 +13,9 @@ export function Header() {
         <Link to="home" className={css.logo}>
           🐶
         </Link>
-        <button onClick={openModal}>☰</button>
+        <button className={css.btn} onClick={openModal}>
+          ☰
+        </button>
         <MenuModal isOpen={isOpen} closeModal={closeModal}>
           <Link to="login" onClick={closeModal} className={css.links}>
             Sing in to you account

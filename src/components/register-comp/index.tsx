@@ -1,30 +1,24 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Outlet } from "react-router-dom";
+import React from "react";
 import css from "./register.css";
+import { ButtonForm } from "../../ui/button-form/ButtonForm";
+import { TextField } from "../../ui/text-field";
+import { HideText } from "../../ui/hide-text/HideText";
 
 export function RegisterForm() {
   return (
     <form className={css.root}>
-      <label>
-        <h3>Fullname</h3>
-        <input />
-      </label>
+      <TextField type="text" name="fullname" placeholder="Fullname" />
+      <TextField type="email" name="email" placeholder="Email" />
+      <TextField type="password" name="password" placeholder="Password" />
+      <TextField
+        type="password"
+        name="passwordRepited"
+        placeholder="Repite Password"
+      />
 
-      <label>
-        <h3>Email</h3>
-        <input />
-      </label>
+      <HideText></HideText>
 
-      <label>
-        <h3>Password</h3>
-        <input />
-      </label>
-      <label>
-        <input />
-      </label>
-      <button>🙈</button>
-
-      <button>Register</button>
+      <ButtonForm>Register</ButtonForm>
     </form>
   );
 }

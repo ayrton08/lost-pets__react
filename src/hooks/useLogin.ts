@@ -6,7 +6,7 @@ export const userState = atom({
   default: {},
 });
 export async function useLogin(email: String, password: String) {
-  const sendFormLogin = await fetch(
+  const loginFetch = await fetch(
     `https://dwf-m7-postgre.herokuapp.com/api/v1/auth/signin`,
     {
       method: "POST",
@@ -16,6 +16,10 @@ export async function useLogin(email: String, password: String) {
       body: JSON.stringify({ email, password }),
     }
   );
-  const res = await sendFormLogin.json();
+  if (loginFetch.status === 400) {
+    console.log("entre en el error");
+    return null
+  }
+  const res = await loginFetch.json();
   return res;
 }
