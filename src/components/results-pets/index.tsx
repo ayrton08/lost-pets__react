@@ -3,12 +3,12 @@ import css from "./results.css";
 
 export function ResultsPets({ pictureURL, name, raza, location }) {
   return (
-    <div className={css.root}>
-      <img src={pictureURL} className={css.image} />
-      <span>Nombre: {name} </span>
+    <div className={css.card}>
+      <img src={pictureURL} className={css.img} />
+      <span className={css.job}>Nombre: {name} </span>
       <span>Raza: {raza}</span>
       <span>Location: {location}</span>
-      <a>Reportar</a>
+      <a className={css.button}>Reportar</a>
     </div>
   );
 }
