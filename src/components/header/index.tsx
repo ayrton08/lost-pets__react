@@ -49,7 +49,7 @@ export function Header() {
             <Link to="my-reports" onClick={closeModal} className={css.links}>
               My Reports
             </Link>
-            <Link to="report-pets" onClick={closeModal} className={css.links}>
+            <Link to="report-pet" onClick={closeModal} className={css.links}>
               Report Pets
             </Link>
             <ButtonClose closeSession={closeSession}></ButtonClose>

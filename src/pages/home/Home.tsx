@@ -13,7 +13,7 @@ export function Home() {
 
   return (
     <div className={css.root}>
-      Home
+      <h2>Home</h2>
       <div className={css.card}>
         {results.length === 0 ? (
           <div className={css.root}>
