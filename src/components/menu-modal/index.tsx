@@ -6,7 +6,7 @@ export function MenuModal({ children, isOpen, closeModal }) {
     <div className={`${css.root} ${isOpen && css.open}`}>
       <div className={css.container}>
         <button onClick={closeModal} className={css.close}>
-          ❌
+          🐾
         </button>
         {children}
       </div>

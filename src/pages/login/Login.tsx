@@ -17,6 +17,7 @@ export function Login() {
       setError("Error en el login");
     } else {
       setValue(res);
+      console.log("state login", value);
       return navigate("/home", { replace: true });
     }
   }
