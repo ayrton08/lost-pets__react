@@ -10,12 +10,14 @@ export function ResultsPets({
   children,
 }) {
   return (
-    <div className={css.card}>
+    <div
+      className={window.location.pathname === "/home" ? css.card : css.mycard}
+    >
       <img src={pictureURL} className={css.img} />
       <span className={css.job}>Nombre: {name} </span>
       <span>Raza: {raza}</span>
       <span>Location: {location}</span>
-      <a className={css.button} onClick={report} >
+      <a className={css.button} onClick={report}>
         Reportar
       </a>
       {children}

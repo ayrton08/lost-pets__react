@@ -1,6 +1,3 @@
-import { atom, selector, useRecoilState } from "recoil";
-import { useEffect } from "react";
-
 async function register(fullname: String, email: String, password: String) {
   const register = await fetch(
     `https://dwf-m7-postgre.herokuapp.com/api/v1/users`,
