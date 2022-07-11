@@ -5,10 +5,11 @@ import { TextField } from "../../ui/text-field";
 import { HideText } from "../../ui/hide-text/HideText";
 
 type RegisterForm = {
-  onLogin: (params: {
+  onRegister: (params: {
     fullname: string;
     email: string;
     password: string;
+    passwordRepeat: string;
   }) => any;
   error: String;
 };
@@ -19,10 +20,12 @@ export function RegisterForm(props: RegisterForm) {
     const fullname = e.target.fullname.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    props.onLogin({
+    const passwordRepeat = e.target.passwordRepited.value;
+    props.onRegister({
       fullname,
       email,
       password,
+      passwordRepeat,
     });
   }
 

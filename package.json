@@ -14,11 +14,13 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
+    "@types/dropzone": "^5.7.4",
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
+    "dropzone": "^6.0.0-beta.2",
     "live-server": "^1.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

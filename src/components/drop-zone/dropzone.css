@@ -1,0 +1,7 @@
+.dropzone {
+  width: 150px;
+  height: 110px;
+  background-color: antiquewhite;
+  opacity: 0.2;
+  border-radius: 5px;
+}
