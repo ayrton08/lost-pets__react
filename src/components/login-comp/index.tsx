@@ -10,6 +10,7 @@ type LoginForm = {
 };
 
 export function LoginForm(props: LoginForm) {
+  
   function onSubmitHandler(e) {
     e.preventDefault();
     const email = e.target.email.value;
