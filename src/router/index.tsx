@@ -9,12 +9,13 @@ import { MyData } from "../pages/my-data/MyData";
 import { MyReports } from "../pages/my-reports/MyReports";
 import { ReportPet } from "../pages/report-pet/ReportPet";
 import { useRecoilState } from "recoil";
-import { loginState } from "../hooks/useDataUser";
+import { state } from "../hooks/useDataUser";
 import { useDataUser } from "../hooks/useDataUser";
 const token = JSON.parse(localStorage.getItem("token"));
 
 export function AppRoutes() {
-  const [stateUser, setStateUser] = useRecoilState(loginState);
+  const [stateUser, setStateUser] = useRecoilState(state);
+  console.log("desde el router", stateUser);
   useEffect(() => {
     if (token) {
       useDataUser(token).then((data) => {

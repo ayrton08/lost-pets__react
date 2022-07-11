@@ -3,25 +3,35 @@ import { Link, useNavigate } from "react-router-dom";
 import css from "./login.css";
 import { LoginForm } from "../../components/login-comp";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { userState } from "../../hooks/useLogin";
 import { useLogin } from "../../hooks/useLogin";
+import { state } from "../../hooks/useDataUser";
 
+// arreglar el tipado de este componente
 export function Login() {
-  const [value, setValue] = useRecoilState(userState);
   const navigate = useNavigate();
+  const newState = useRecoilValue(state);
+  if (newState["id"]) {
+    return navigate("/home", { replace: true });
+  }
+
+  const [value, setValue] = useRecoilState(state);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("token", JSON.stringify(newState));
+  }, [newState]);
 
   async function loginIn(dataForm) {
     const res = await useLogin(dataForm.email, dataForm.password);
     if (res === null) {
       setError("Error en el login");
     } else {
+      console.log("value", value);
+      console.log("newstate", newState);
       setValue(res);
-      console.log("state login", value);
       return navigate("/home", { replace: true });
     }
   }
-  localStorage.setItem("token", JSON.stringify(value));
 
   return (
     <div className={css.root}>

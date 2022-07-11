@@ -3,22 +3,18 @@ import { Outlet, Link, useNavigate } from "react-router-dom";
 import css from "./header.css";
 import { MenuModal } from "../menu-modal";
 import { useModal } from "../../hooks/useModal";
-import { loginState } from "../../hooks/useDataUser";
-import { useRecoilState } from "recoil";
+import { state } from "../../hooks/useDataUser";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { ButtonClose } from "../../ui/button-close-session/button-close-session";
 
 export function Header() {
   const navigate = useNavigate();
   const { isOpen, openModal, closeModal } = useModal(false);
-  const [stateUser, setStateUser] = useRecoilState(loginState);
-
-  console.log("desde el header", stateUser);
+  let stateUser = useRecoilValue(state);
 
   function closeSession(e) {
     e.preventDefault();
-    setStateUser(false);
     localStorage.removeItem("token");
-    console.log("cerrando sesseion ...", stateUser);
     closeModal();
     return navigate("/", { replace: true });
   }

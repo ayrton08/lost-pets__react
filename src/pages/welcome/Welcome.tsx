@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import css from "./welcome.css";
 import { useDataUser } from "../../hooks/useDataUser";
-import { loginState } from "../../hooks/useDataUser";
+import { state } from "../../hooks/useDataUser";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { ButtonGeneric } from "../../ui/buttons-generic/button-generic";
 
 export function Welcome() {
-  const state = useRecoilValue(loginState);
+  const newState = useRecoilValue(state);
   console.log("soy el state de recoil", state);
   return (
     <div className={css.root}>

@@ -20,7 +20,9 @@ input:hover {
 }
 
 .input::placeholder {
-  color: #777;
+  color: #f1c40f;
+  font-style: italic;
+  opacity: 0.5;
 }
 
 .input:focus::placeholder {

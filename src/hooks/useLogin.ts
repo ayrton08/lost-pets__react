@@ -1,10 +1,7 @@
 import { atom, selector, useRecoilState } from "recoil";
 import { useEffect } from "react";
 
-export const userState = atom({
-  key: "textState",
-  default: {},
-});
+
 export async function useLogin(email: String, password: String) {
   const loginFetch = await fetch(
     `https://dwf-m7-postgre.herokuapp.com/api/v1/auth/signin`,
