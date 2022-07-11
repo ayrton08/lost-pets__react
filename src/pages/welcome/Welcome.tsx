@@ -3,19 +3,12 @@ import { Link } from "react-router-dom";
 import css from "./welcome.css";
 import { useDataUser } from "../../hooks/useDataUser";
 import { loginState } from "../../hooks/useDataUser";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { ButtonGeneric } from "../../ui/buttons-generic/button-generic";
 
 export function Welcome() {
-  const [stateUser, setStateUser] = useRecoilState(loginState);
-
-  useEffect(() => {
-    useDataUser().then((data) => {
-      setStateUser(data);
-    });
-  }, []);
-  console.log("state User", stateUser);
-
+  const state = useRecoilValue(loginState);
+  console.log("soy el state de recoil", state);
   return (
     <div className={css.root}>
       <h3>¡Welcome! </h3>
