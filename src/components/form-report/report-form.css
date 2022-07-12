@@ -12,7 +12,9 @@
   padding: 20px;
 }
 
-
 .span {
+  font-size: 12px;
+}
+.instruction {
   font-size: 12px;
 }

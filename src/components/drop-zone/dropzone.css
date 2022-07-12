@@ -1,7 +1,23 @@
-.dropzone {
-  width: 150px;
-  height: 110px;
-  background-color: antiquewhite;
-  opacity: 0.2;
-  border-radius: 5px;
+.container {
+  border: 2px dotted gray;
+  border-radius: 3px;
+  background-color: azure;
+  height: 100px;
+  min-width: 180px;
+  opacity: 0.7;
+  color: slategray;
+  font-size: 13px;
+  cursor: pointer;
+}
+.container:hover {
+  background-color: gray;
+  border: 2px dotted antiquewhite;
+  color: antiquewhite;
+}
+
+.image {
+  width: 180px;
+  height: 100px;
+  border-radius: 3px;
+  object-fit: cover;
 }

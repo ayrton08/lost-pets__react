@@ -2,12 +2,6 @@ import React, { useState, useEffect } from "react";
 import { FormMyData } from "../../components/form-my-data";
 import { updateMyData } from "../../hooks/useMyData";
 
-type MyData = {
-  fullname: string;
-  password: string;
-  passwordRepeat: string;
-};
-
 export function MyData() {
   async function newData(dataForm) {
     if (dataForm.password !== dataForm.passwordRepeat) {

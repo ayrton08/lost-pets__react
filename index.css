@@ -2,3 +2,27 @@
   box-sizing: border-box;
   margin: 0;
 }
+.dzu-previewImage {
+  max-width: 180px;
+  max-height: 150px;
+}
+.dzu-inputLabelWithFiles {
+  display: none;
+}
+.dzu-input {
+  max-width: 200px !important;
+  min-height: 150px !important;
+  display: flex;
+  text-align: center;
+}
+.dzu-inputLabel {
+  min-width: 200px !important;
+  min-height: 150px !important;
+}
+.dzu-submitButton {
+  display: none;
+}
+.mapboxgl-ctrl-bottom-right{
+  display: none;
+}
+

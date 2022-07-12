@@ -14,39 +14,41 @@ export function Home() {
   return (
     <div className={css.root}>
       <h2>Home</h2>
-      <div className={css.card}>
+      <div>
         {results.length === 0 ? (
           <div className={css.root}>
             <Loader />
           </div>
         ) : (
-          results.map((r) => {
-            return (
-              <ResultsPets
-                key={r.objectID}
-                pictureURL={r.pictureURL}
-                name={r.name}
-                raza={r.raza}
-                location={r.location}
-                report={() => {
-                  openModal();
-                  setDataPet({
-                    id: r.objectID,
-                    name: r.name,
-                    raza: r.raza,
-                    pictureURL: r.pictureURL,
-                  });
-                }}
-              >
-                <ModalReport
-                  isOpen={isOpen}
-                  closeModal={closeModal}
-                  name={dataPet["name"]}
-                  img={dataPet["pictureURL"]}
-                />
-              </ResultsPets>
-            );
-          })
+          <div className={css.card}>
+            {results.map((r) => {
+              return (
+                <ResultsPets
+                  key={r.objectID}
+                  pictureURL={r.pictureURL}
+                  name={r.name}
+                  raza={r.raza}
+                  location={r.location}
+                  report={() => {
+                    openModal();
+                    setDataPet({
+                      id: r.objectID,
+                      name: r.name,
+                      raza: r.raza,
+                      pictureURL: r.pictureURL,
+                    });
+                  }}
+                >
+                  <ModalReport
+                    isOpen={isOpen}
+                    closeModal={closeModal}
+                    name={dataPet["name"]}
+                    img={dataPet["pictureURL"]}
+                  />
+                </ResultsPets>
+              );
+            })}
+          </div>
         )}
       </div>
     </div>
