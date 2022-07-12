@@ -26,8 +26,6 @@ export function Login() {
     if (res === null) {
       setError("Error en el login");
     } else {
-      console.log("value", value);
-      console.log("newstate", newState);
       setValue(res);
       return navigate("/home", { replace: true });
     }

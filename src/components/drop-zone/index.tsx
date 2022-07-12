@@ -22,9 +22,9 @@ export function Dropzone() {
     onDrop,
   });
 
-  useEffect(() => {
-    console.log("images", images);
-  }, [images]);
+//   useEffect(() => {
+//     console.log("images", images);
+//   }, [images]);
 
   return (
     <div>

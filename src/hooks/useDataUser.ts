@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
-import { atom, selector } from "recoil";
+import { atom } from "recoil";
 
 export const state = atom({
   key: "loginState",
@@ -18,6 +16,5 @@ export async function useDataUser(token: string) {
     }
   );
   const dataForm = await res.json();
-  console.log("dataUser", dataForm);
   return dataForm;
 }

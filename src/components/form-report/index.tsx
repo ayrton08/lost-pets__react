@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import css from "./report-form.css";
 import { ButtonForm } from "../../ui/button-form/ButtonForm";
 import { TextField } from "../../ui/text-field";
@@ -36,20 +37,25 @@ export function ReportForm(props: ReportPet) {
   }
 
   return (
-    <form className={css.root} onSubmit={onSubmitHandler}>
-      <TextField type="text" name="name" placeholder="Name" />
-      <TextField type="text" name="raza" placeholder="Race" />
-      <div className={css.dropzone}>
-        <Dropzone />
-      </div>
-      <span className={css.instruction}>
-        By default the location where you are will be reported, if you wish to
-        indicate another location in the report you can do so on the map below.
-      </span>
-      {/* <Mapbox></Mapbox> */}
+    <div>
+      <form className={css.root} onSubmit={onSubmitHandler}>
+        <TextField type="text" name="name" placeholder="Name" />
+        <TextField type="text" name="raza" placeholder="Race" />
+        <div className={css.dropzone}>
+          <Dropzone />
+        </div>
+        <span className={css.instruction}>
+          By default the location where you are will be reported, if you wish to
+          indicate another location in the report you can do so on the map
+          below.
+        </span>
+        {/* <Mapbox></Mapbox> */}
 
-      <ButtonForm>Report</ButtonForm>
-      <ButtonForm>Cancel</ButtonForm>
-    </form>
+        <ButtonForm>Report</ButtonForm>
+        <Link to="/home">
+          <ButtonForm>Cancel</ButtonForm>
+        </Link>
+      </form>
+    </div>
   );
 }

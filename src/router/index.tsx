@@ -15,7 +15,6 @@ const token = JSON.parse(localStorage.getItem("token"));
 
 export function AppRoutes() {
   const [stateUser, setStateUser] = useRecoilState(state);
-  console.log("desde el router", stateUser);
   useEffect(() => {
     if (token) {
       useDataUser(token).then((data) => {
