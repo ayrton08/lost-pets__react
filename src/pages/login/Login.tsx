@@ -1,19 +1,15 @@
 import React, { useState, useEffect, useContext, Suspense } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import css from "./login.css";
 import { LoginForm } from "../../components/login-comp";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { useLogin } from "../../hooks/useLogin";
 import { state } from "../../hooks/useDataUser";
+import { useLogin } from "../../hooks/useLogin";
 
 // arreglar el tipado de este componente
 export function Login() {
   const navigate = useNavigate();
   const newState = useRecoilValue(state);
-  console.log("newState", newState);
-  if (newState["id"]) {
-    return navigate("/home", { replace: true });
-  }
 
   const [value, setValue] = useRecoilState(state);
   const [error, setError] = useState("");
@@ -36,7 +32,11 @@ export function Login() {
 
   return (
     <div className={css.root}>
-      <LoginForm onLogin={(val) => loginIn(val)} error={error}></LoginForm>
+      {newState["id"] ? (
+        <Navigate to="/home" replace={true} />
+      ) : (
+        <LoginForm onLogin={(val) => loginIn(val)} error={error}></LoginForm>
+      )}
     </div>
   );
 }

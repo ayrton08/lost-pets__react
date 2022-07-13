@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useRef } from "react";
 import css from "./modal-report.css";
 import { TextField } from "../../ui/text-field";
 import { ButtonForm } from "../../ui/button-form/ButtonForm";
@@ -16,16 +16,19 @@ type ModalReport = {
 };
 
 export function ModalReport(props: ModalReport) {
+  const form = useRef(null);
   function onSubmitHandler(e) {
     e.preventDefault();
     const fullname = e.target.fullname.value;
     const cellphone = e.target.cellphone.value;
     const info = e.target.info.value;
+
     props.onReport({
       fullname,
       cellphone,
       info,
     });
+    form.current.reset();
   }
 
   return (
@@ -34,7 +37,7 @@ export function ModalReport(props: ModalReport) {
         <button onClick={props.closeModal} className={css.close}>
           🐾
         </button>
-        <form className={css.form} onSubmit={onSubmitHandler}>
+        <form className={css.form} onSubmit={onSubmitHandler} ref={form}>
           <span className={css.title}>{props.name}</span>
           <img src={props.img} className={css.image}></img>
           <TextField

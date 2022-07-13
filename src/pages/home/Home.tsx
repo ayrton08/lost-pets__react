@@ -7,8 +7,11 @@ import { ModalReport } from "../../components/modal-report";
 import { useModal } from "../../hooks/useModal";
 import { sendInfoPet } from "../../hooks/sendInfoPet";
 import { findById } from "../../hooks/findById";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export function Home() {
+  const navigate = useNavigate();
   const results = useResultsPets();
   const [dataPet, setDataPet] = useState({
     id: null,
@@ -16,25 +19,43 @@ export function Home() {
     raza: "",
     pictureURL: "",
   });
-
+  const { isOpen, openModal, closeModal } = useModal(false);
   const [dataComplete, setDataComplete] = useState({});
 
   const search = async () => {
     if (dataPet.id) {
       const res = await findById(dataPet.id);
-      console.log("respuesta segun id", res);
-      console.log("state", dataPet);
       setDataComplete(res);
       return res;
     }
   };
-  console.log(" new state", dataComplete);
 
   useEffect(() => {
     search();
   }, [dataPet]);
 
-  const { isOpen, openModal, closeModal } = useModal(false);
+  function result() {
+    closeModal();
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "bottom",
+      background: "#2471A3",
+      color: "#D6EAF8",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: "success",
+      title: "Report sent successfully",
+    });
+  }
 
   async function onSubmitHandler(dataForm) {
     !dataForm.fullname && alert("Falta el nombre");
@@ -45,11 +66,8 @@ export function Home() {
       title: dataComplete["name"],
       emailOwner: dataComplete["email"],
     };
-    console.log("data", data);
-    console.log("data form info report", dataForm);
     const fetch = await sendInfoPet(data);
-    console.log("respuesta", fetch);
-    console.log("datPet", dataPet);
+    fetch.email && result();
   }
 
   return (
