@@ -23,7 +23,6 @@ type ReportPet = {
 
 export function ReportForm(props: ReportPet) {
   const location = useRecoilValue(locationReport);
-  console.log("location desde el form", location);
 
   const picture = useRecoilValue(dropzone);
 
@@ -46,8 +45,8 @@ export function ReportForm(props: ReportPet) {
     <div className={css.container}>
       <h2 className={css.title}>Report</h2>
       <form className={css.root} onSubmit={onSubmitHandler}>
-        <TextField type="text" name="race" placeholder="Race" />
         <TextField type="text" name="name" placeholder="Name" />
+        <TextField type="text" name="race" placeholder="Race" />
         <div className={css.dropzone}>
           <Dropzone />
         </div>

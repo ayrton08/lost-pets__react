@@ -16,5 +16,4 @@ export async function updateReport(dataForm: Object, token, idPet) {
     body: JSON.stringify({ dataForm }),
   });
   const data = await res.json();
-  console.log(data);
 }

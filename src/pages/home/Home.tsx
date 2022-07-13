@@ -9,10 +9,12 @@ import { sendInfoPet } from "../../hooks/sendInfoPet";
 import { findById } from "../../hooks/findById";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Logo } from "../../ui/logo/logo";
 
 export function Home() {
   const navigate = useNavigate();
   const results = useResultsPets();
+  const [withoutResult, setWithoutResult] = useState(false);
   const [dataPet, setDataPet] = useState({
     id: null,
     name: "",
@@ -81,34 +83,45 @@ export function Home() {
         ) : (
           <div className={css.card}>
             {results.map((r) => {
-              return (
-                <ResultsPets
-                  key={r.objectID}
-                  content="Report"
-                  pictureURL={r.pictureURL}
-                  name={r.name}
-                  raza={r.raza}
-                  location={r.location}
-                  report={() => {
-                    openModal();
-                    setDataPet({
-                      id: r.objectID,
-                      name: r.name,
-                      raza: r.raza,
-                      pictureURL: r.pictureURL,
-                    });
-                  }}
-                >
-                  <ModalReport
-                    isOpen={isOpen}
-                    closeModal={closeModal}
-                    name={dataPet["name"]}
-                    img={dataPet["pictureURL"]}
-                    onReport={(val) => onSubmitHandler(val)}
-                  />
-                </ResultsPets>
-              );
+              if (r.state === "true") {
+                !r.state && setWithoutResult(true);
+                return (
+                  <ResultsPets
+                    key={r.objectID}
+                    content="Report"
+                    pictureURL={r.pictureURL}
+                    name={r.name}
+                    raza={r.raza}
+                    location={r.location}
+                    report={() => {
+                      openModal();
+                      setDataPet({
+                        id: r.objectID,
+                        name: r.name,
+                        raza: r.raza,
+                        pictureURL: r.pictureURL,
+                      });
+                    }}
+                  >
+                    <ModalReport
+                      isOpen={isOpen}
+                      closeModal={closeModal}
+                      name={dataPet["name"]}
+                      img={dataPet["pictureURL"]}
+                      onReport={(val) => onSubmitHandler(val)}
+                    />
+                  </ResultsPets>
+                );
+              }
             })}
+          </div>
+        )}
+        {!withoutResult && (
+          <div className={css.without}>
+            <h3>No hay mascotas reportadas por el momento</h3>
+            <div>
+              <Logo />
+            </div>
           </div>
         )}
       </div>

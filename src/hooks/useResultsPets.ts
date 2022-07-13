@@ -7,6 +7,7 @@ type ResponsePets = {
   name: string;
   raza: string;
   location: any;
+  state?: string;
 };
 
 export function useResultsPets(): Array<ResponsePets> {

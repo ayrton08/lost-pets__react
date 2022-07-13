@@ -23,10 +23,7 @@ export function ResultsPets(props: ResultsPets) {
   async function deletePet(id) {
     card.current.className = css.off;
     const token = JSON.parse(localStorage.getItem("token"));
-    console.log("token", token);
     const updateFetch = await updateReport({ state: false }, token, idReport);
-    console.log("updateFetch", updateFetch);
-    console.log("desde el card", card.current);
   }
   return (
     <div
