@@ -9,7 +9,7 @@
   width: 100%;
   max-width: 500px;
   gap: 20px;
-  padding: 40px;
+  padding: 20px 40px 40px 40px;
 }
 
 .container {
@@ -58,4 +58,8 @@
 .cancel:hover {
   opacity: 0.8;
   color: antiquewhite;
+}
+.title {
+  font-family: "Josefin Sans", sans-serif;
+  padding-top: 15px;
 }

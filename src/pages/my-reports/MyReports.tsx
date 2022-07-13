@@ -15,7 +15,7 @@ export function MyReports() {
 
   return (
     <div className={css.root}>
-      <h2>My Reports</h2>
+      <h2 className={css.title}>My Reports</h2>
       <div>
         {myReports.length === 0 ? (
           <div className={css.root}>

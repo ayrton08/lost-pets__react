@@ -35,6 +35,7 @@ export function Login() {
 
   return (
     <div className={css.root}>
+      <h2 className={css.title}>Login</h2>
       {newState ? (
         <Navigate to="/home" replace={true} />
       ) : (

@@ -35,7 +35,7 @@ export function FormMyData(props: FormMyData) {
   }
   return (
     <div className={css.page}>
-      <h2>Your Information</h2>
+      <h2 className={css.title}>Your Information</h2>
       <form className={css.root} onSubmit={onSubmitHandler}>
         <TextField
           type="text"

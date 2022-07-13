@@ -42,6 +42,7 @@ export function ReportForm(props: ReportPet) {
 
   return (
     <div className={css.container}>
+      <h2 className={css.title}>Report</h2>
       <form className={css.root} onSubmit={onSubmitHandler}>
         <TextField type="text" name="name" placeholder="Name" />
         <TextField type="text" name="race" placeholder="Race" />

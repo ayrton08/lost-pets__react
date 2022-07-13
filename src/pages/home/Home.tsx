@@ -72,7 +72,7 @@ export function Home() {
 
   return (
     <div className={css.root}>
-      <h2>Home</h2>
+      <h2 className={css.title}>Home</h2>
       <div>
         {results.length === 0 ? (
           <div className={css.root}>

@@ -8,3 +8,7 @@
   color: antiquewhite;
   min-height: 100vh;
 }
+.title {
+  font-family: "Josefin Sans", sans-serif;
+  padding: 20px;
+}

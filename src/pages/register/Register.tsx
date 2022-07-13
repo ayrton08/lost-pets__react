@@ -38,7 +38,7 @@ export function Register() {
 
   return (
     <div className={css.root}>
-      Register
+      <h2 className={css.title}>Register</h2>
       <RegisterForm
         onRegister={(val) => handlerRegister(val)}
         error={undefined}
