@@ -1,8 +1,7 @@
 .container {
-  box-sizing: border-box;
-  position: static;
-  align-items: "center";
-  justify-content: "center";
+  width: 330px;
+  height: 300px;
+  border-radius: 3px;
 }
 
 .sidebar {
@@ -24,3 +23,23 @@
 .div {
   width: "100%";
 }
+
+.button {
+  background-color: #82e0aa;
+  color: rgba(35, 55, 75, 0.8);
+  padding: 6px 12px;
+  font-family: monospace;
+  z-index: 1;
+  margin: 5px;
+  font-size: 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+  border: none;
+}
+.button:hover {
+  background-color: rgba(35, 55, 75, 0.8);
+  color: #fff;
+}
+
+

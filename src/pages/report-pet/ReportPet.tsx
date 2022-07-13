@@ -6,7 +6,8 @@ import { doReport } from "../../hooks/doReport";
 export function ReportPet() {
   const token = JSON.parse(localStorage.getItem("token"));
   async function reportPet(dataForm) {
-    const report = await doReport(dataForm, token);
+    console.log("dataForm", dataForm);
+    // const report = await doReport(dataForm, token);
   }
 
   return (

@@ -6,22 +6,24 @@ import { TextField } from "../../ui/text-field";
 import { Dropzone } from "../drop-zone";
 import { dropzone } from "../../hooks/dropzone-atom";
 import { useRecoilValue } from "recoil";
-// import { Mapbox } from "../mapbox";
+import { Mapbox } from "../mapbox";
+import { locationReport } from "../../hooks/location";
 
 type ReportPet = {
   report: (params: {
     name?: string;
     race?: string;
     pictureURL?: string;
-    location?: {
-      lat: string;
-      lng: string;
-    };
+    lat: number;
+    lng: number;
   }) => any;
   error?: String;
 };
 
 export function ReportForm(props: ReportPet) {
+  const location = useRecoilValue(locationReport);
+  console.log("location desde el form", location);
+
   const picture = useRecoilValue(dropzone);
 
   function onSubmitHandler(e) {
@@ -33,6 +35,8 @@ export function ReportForm(props: ReportPet) {
       name,
       race,
       pictureURL,
+      lat: location["lat"],
+      lng: location["lng"],
     });
   }
 
@@ -49,11 +53,11 @@ export function ReportForm(props: ReportPet) {
           indicate another location in the report you can do so on the map
           below.
         </span>
-        {/* <Mapbox></Mapbox> */}
+        <Mapbox></Mapbox>
 
-        <ButtonForm>Report</ButtonForm>
+        <button className={css.report}>Report</button>
         <Link to="/home">
-          <ButtonForm>Cancel</ButtonForm>
+          <button className={css.cancel}>Cancel</button>
         </Link>
       </form>
     </div>
