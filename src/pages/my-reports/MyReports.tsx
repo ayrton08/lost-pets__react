@@ -24,9 +24,11 @@ export function MyReports() {
         ) : (
           <div className={css.card}>
             {myReports.map((r) => {
+              console.log("datos de respues", r);
               return (
                 <ResultsPets
                   key={r.id}
+                  content="Edit"
                   pictureURL={r.pictureURL}
                   name={r.name}
                   raza={r.raza}

@@ -4,18 +4,21 @@ import css from "./login.css";
 import { LoginForm } from "../../components/login-comp";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { state } from "../../hooks/useDataUser";
-import { useLogin } from "../../hooks/useLogin";
+import { useLogin, login } from "../../hooks/useLogin";
 
 // arreglar el tipado de este componente
 export function Login() {
   const navigate = useNavigate();
   const newState = useRecoilValue(state);
+  const loginState = useRecoilValue(login);
+  console.log("newState", newState);
 
   const [value, setValue] = useRecoilState(state);
   const [error, setError] = useState("");
 
   useEffect(() => {
     if (newState) {
+      console.log("loginState", loginState);
       localStorage.setItem("token", JSON.stringify(newState));
     }
   }, [newState]);
@@ -32,7 +35,7 @@ export function Login() {
 
   return (
     <div className={css.root}>
-      {newState["id"] ? (
+      {newState ? (
         <Navigate to="/home" replace={true} />
       ) : (
         <LoginForm onLogin={(val) => loginIn(val)} error={error}></LoginForm>

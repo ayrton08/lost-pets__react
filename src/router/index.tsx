@@ -11,14 +11,19 @@ import { ReportPet } from "../pages/report-pet/ReportPet";
 import { useRecoilState } from "recoil";
 import { state } from "../hooks/useDataUser";
 import { useDataUser } from "../hooks/useDataUser";
+import { login } from "../hooks/useLogin";
 const token = JSON.parse(localStorage.getItem("token"));
 
 export function AppRoutes() {
   const [stateUser, setStateUser] = useRecoilState(state);
+  const [loginState, setLoginState] = useRecoilState(login);
+
   useEffect(() => {
+    setLoginState(token);
     if (token) {
       useDataUser(token).then((data) => {
-        setStateUser(data);
+        setStateUser(token);
+        setLoginState(data);
       });
     }
   }, [token]);

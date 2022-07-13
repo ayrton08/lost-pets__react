@@ -8,17 +8,18 @@ export function ResultsPets({
   location,
   report,
   children,
+  content,
 }) {
   return (
     <div
       className={window.location.pathname === "/home" ? css.card : css.mycard}
     >
       <img src={pictureURL} className={css.img} />
-      <span className={css.job}>Nombre: {name} </span>
-      <span>Raza: {raza}</span>
-      <span>Location: {location}</span>
+      <span className={css.job}>{name}</span>
+      <span className={css.span}>Raza: {raza}</span>
+      <span className={css.span}>Location: {location}</span>
       <a className={css.button} onClick={report}>
-        Reportar
+        {content}
       </a>
       {children}
     </div>

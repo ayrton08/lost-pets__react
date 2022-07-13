@@ -84,6 +84,7 @@ export function Home() {
               return (
                 <ResultsPets
                   key={r.objectID}
+                  content="Report"
                   pictureURL={r.pictureURL}
                   name={r.name}
                   raza={r.raza}

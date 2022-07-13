@@ -7,7 +7,7 @@ export function ReportPet() {
   const token = JSON.parse(localStorage.getItem("token"));
   async function reportPet(dataForm) {
     console.log("dataForm", dataForm);
-    // const report = await doReport(dataForm, token);
+    const report = await doReport(dataForm, token);
   }
 
   return (

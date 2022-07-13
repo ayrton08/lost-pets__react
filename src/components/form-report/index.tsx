@@ -29,7 +29,7 @@ export function ReportForm(props: ReportPet) {
   function onSubmitHandler(e) {
     e.preventDefault();
     const name = e.target.name.value;
-    const race = e.target.raza.value;
+    const race = e.target.race.value;
     const pictureURL = picture[0];
     props.report({
       name,
@@ -41,10 +41,10 @@ export function ReportForm(props: ReportPet) {
   }
 
   return (
-    <div>
+    <div className={css.container}>
       <form className={css.root} onSubmit={onSubmitHandler}>
         <TextField type="text" name="name" placeholder="Name" />
-        <TextField type="text" name="raza" placeholder="Race" />
+        <TextField type="text" name="race" placeholder="Race" />
         <div className={css.dropzone}>
           <Dropzone />
         </div>

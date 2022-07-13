@@ -1,6 +1,10 @@
 import { atom, selector, useRecoilState } from "recoil";
 import { useEffect } from "react";
 
+export const login = atom({
+  key: "login",
+  default: false,
+});
 
 export async function useLogin(email: String, password: String) {
   const loginFetch = await fetch(
@@ -14,7 +18,7 @@ export async function useLogin(email: String, password: String) {
     }
   );
   if (loginFetch.status === 400) {
-    return null
+    return null;
   }
   const res = await loginFetch.json();
   return res;
