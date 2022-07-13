@@ -10,6 +10,7 @@ import { state } from "../../hooks/useDataUser";
 export function Login() {
   const navigate = useNavigate();
   const newState = useRecoilValue(state);
+  console.log("newState", newState);
   if (newState["id"]) {
     return navigate("/home", { replace: true });
   }
@@ -18,7 +19,9 @@ export function Login() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("token", JSON.stringify(newState));
+    if (newState) {
+      localStorage.setItem("token", JSON.stringify(newState));
+    }
   }, [newState]);
 
   async function loginIn(dataForm) {

@@ -8,7 +8,6 @@ import { ButtonGeneric } from "../../ui/buttons-generic/button-generic";
 
 export function Welcome() {
   const newState = useRecoilValue(state);
-  console.log("soy el state de recoil", state);
   return (
     <div className={css.root}>
       <h3>¡Welcome! </h3>
