@@ -63,3 +63,15 @@
   font-family: "Josefin Sans", sans-serif;
   padding-top: 15px;
 }
+
+.textarea {
+  color: antiquewhite;
+  background-color: black;
+  width: 250px;
+  height: 80px;
+  font-size: 12px;
+}
+
+.locationName {
+  font-size: 10px;
+}

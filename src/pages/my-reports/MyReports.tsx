@@ -6,12 +6,18 @@ import { Loader } from "../../ui/loader/loader";
 import { ModalReport } from "../../components/modal-report";
 import { useModal } from "../../hooks/useModal";
 import { useMyReports } from "../../hooks/useMyReports";
+import { useRecoilState } from "recoil";
+import { idPet } from "../../hooks/updateReport";
 
 export function MyReports() {
   const [dataPet, setDataPet] = useState({});
+  const [id, setIdPet] = useRecoilState(idPet);
   const { isOpen, openModal, closeModal } = useModal(false);
 
   const myReports = useMyReports() || [];
+
+  console.log("myReports", myReports);
+  console.log("dataPet", id);
 
   return (
     <div className={css.root}>
@@ -24,33 +30,37 @@ export function MyReports() {
         ) : (
           <div className={css.card}>
             {myReports.map((r) => {
-              console.log("datos de respues", r);
-              return (
-                <ResultsPets
-                  key={r.id}
-                  content="Edit"
-                  pictureURL={r.pictureURL}
-                  name={r.name}
-                  raza={r.raza}
-                  location={r.location}
-                  report={() => {
-                    openModal();
-                    setDataPet({
-                      id: r.objectID,
-                      name: r.name,
-                      raza: r.raza,
-                      pictureURL: r.pictureURL,
-                    });
-                  }}
-                >
-                  <ModalReport
-                    isOpen={isOpen}
-                    closeModal={closeModal}
-                    name={dataPet["name"]}
-                    img={dataPet["pictureURL"]}
-                  />
-                </ResultsPets>
-              );
+              if (r.state === "true") {
+                return (
+                  <ResultsPets
+                    key={r.id}
+                    content="Edit"
+                    pictureURL={r.pictureURL}
+                    name={r.name}
+                    raza={r.raza}
+                    location={r.location}
+                    report={() => {
+                      openModal();
+                      setDataPet({
+                        id: r.objectID,
+                        name: r.name,
+                        raza: r.raza,
+                        pictureURL: r.pictureURL,
+                      });
+                    }}
+                    drop={() => {
+                      setIdPet(r.id);
+                    }}
+                  >
+                    <ModalReport
+                      isOpen={isOpen}
+                      closeModal={closeModal}
+                      name={dataPet["name"]}
+                      img={dataPet["pictureURL"]}
+                    />
+                  </ResultsPets>
+                );
+              }
             })}
           </div>
         )}

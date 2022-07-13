@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import css from "./form-my-data.css";
-import { state } from "../../hooks/useDataUser";
+// import { state } from "../../hooks/useDataUser";
+import { login } from "../../hooks/useLogin";
 import { useRecoilValue } from "recoil";
 import { TextField } from "../../ui/text-field";
 import { ButtonForm } from "../../ui/button-form/ButtonForm";
@@ -15,7 +16,7 @@ type FormMyData = {
 };
 
 export function FormMyData(props: FormMyData) {
-  const stateLogin = useRecoilValue(state);
+  const stateLogin = useRecoilValue(login);
   const navigate = useNavigate();
   // if (!stateLogin) {
   //   return navigate("/login", { replace: true });

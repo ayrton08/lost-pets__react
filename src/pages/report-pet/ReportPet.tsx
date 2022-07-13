@@ -8,6 +8,7 @@ export function ReportPet() {
   async function reportPet(dataForm) {
     console.log("dataForm", dataForm);
     const report = await doReport(dataForm, token);
+    console.log("report res", report);
   }
 
   return (

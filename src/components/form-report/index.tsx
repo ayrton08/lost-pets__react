@@ -12,10 +12,11 @@ import { locationReport } from "../../hooks/location";
 type ReportPet = {
   report: (params: {
     name?: string;
-    race?: string;
+    raza?: string;
     pictureURL?: string;
     lat: number;
     lng: number;
+    state: boolean;
   }) => any;
   error?: String;
 };
@@ -29,14 +30,15 @@ export function ReportForm(props: ReportPet) {
   function onSubmitHandler(e) {
     e.preventDefault();
     const name = e.target.name.value;
-    const race = e.target.race.value;
+    const raza = e.target.race.value;
     const pictureURL = picture[0];
     props.report({
       name,
-      race,
+      raza,
       pictureURL,
       lat: location["lat"],
       lng: location["lng"],
+      state: true,
     });
   }
 
@@ -44,8 +46,8 @@ export function ReportForm(props: ReportPet) {
     <div className={css.container}>
       <h2 className={css.title}>Report</h2>
       <form className={css.root} onSubmit={onSubmitHandler}>
-        <TextField type="text" name="name" placeholder="Name" />
         <TextField type="text" name="race" placeholder="Race" />
+        <TextField type="text" name="name" placeholder="Name" />
         <div className={css.dropzone}>
           <Dropzone />
         </div>
@@ -55,7 +57,20 @@ export function ReportForm(props: ReportPet) {
           below.
         </span>
         <Mapbox></Mapbox>
+        <div className={css.locationName}>
+          <span>Location name: </span>
+          <TextField
+            type="text"
+            name="location"
+            placeholder="Write an address, Eje: City, Neighborhood, Street..."
+          />
+        </div>
 
+        {/* <textarea
+          name="info"
+          className={css.textarea}
+          placeholder="Write a place"
+        ></textarea> */}
         <button className={css.report}>Report</button>
         <Link to="/home">
           <button className={css.cancel}>Cancel</button>
