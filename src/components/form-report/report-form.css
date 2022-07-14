@@ -7,7 +7,7 @@
   /* border: solid 2px;
   border-radius: 5px; */
   width: 100%;
-  max-width: 500px;
+
   gap: 20px;
   padding: 20px 40px 40px 40px;
 }
@@ -15,14 +15,35 @@
 .container {
   background-color: #212121;
   opacity: 0.9;
+  min-width: 300px;
+  max-width: 900px;
+  font-size: 15px;
+}
+@media (min-width: 600px) {
+  .container {
+    width: 900px;
+    font-size: 15px;
+  }
 }
 
 .span {
-  font-size: 12px;
+  font-size: 15px;
 }
+
+@media (min-width: 600px) {
+  .span {
+    font-size: 25px;
+  }
+}
+
 .instruction {
   max-width: 350px;
-  font-size: 12px;
+  font-size: 15px;
+}
+@media (min-width: 600px) {
+  .instruction {
+    font-size: 25px;
+  }
 }
 
 .report {
@@ -38,6 +59,13 @@
   border: none;
   min-width: 250px;
 }
+
+@media (min-width: 600px) {
+  .report {
+    font-size: 25px;
+  }
+}
+
 .report:hover {
   opacity: 0.7;
 }
@@ -55,6 +83,13 @@
   border: none;
   min-width: 250px;
 }
+
+@media (min-width: 600px) {
+  .cancel {
+    font-size: 25px;
+  }
+}
+
 .cancel:hover {
   opacity: 0.8;
   color: antiquewhite;
