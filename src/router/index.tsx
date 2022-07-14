@@ -21,7 +21,7 @@ export function AppRoutes() {
   useEffect(() => {
     setLoginState(token);
     if (token) {
-      useDataUser(token).then((data) => {
+      useDataUser().then((data) => {
         setStateUser(token);
         setLoginState(data);
       });
