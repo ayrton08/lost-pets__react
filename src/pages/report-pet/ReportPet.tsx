@@ -4,8 +4,11 @@ import { ReportForm } from "../../components/form-report";
 import { doReport } from "../../hooks/doReport";
 import { useParams } from "react-router-dom";
 import { updateReport } from "../../hooks/updateReport";
+import { result } from "../../hooks/senfFormModal";
+import { useNavigate } from "react-router-dom";
 
 export function ReportPet() {
+  const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem("token"));
 
   const params = useParams();
@@ -25,11 +28,15 @@ export function ReportPet() {
       return alert("Faltan datos en el report");
     }
 
-    const report = await doReport(dataForm, token);
+    await doReport(dataForm, token);
+    result("Successful Report");
+    return navigate("/my-reports", { replace: true });
   }
 
   async function updatePet(dataForm) {
-    const report = await updateReport(dataForm, token, params.id);
+    await updateReport(dataForm, token, params.id);
+    result("Successful Update");
+    return navigate("/my-reports", { replace: true });
   }
 
   return params.id ? (
