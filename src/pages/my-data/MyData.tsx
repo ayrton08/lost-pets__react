@@ -2,10 +2,10 @@ import React from "react";
 import { FormMyData } from "../../components/form-my-data";
 import { updateMyData } from "../../hooks/useMyData";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { state, useDataUser } from "../../hooks/useDataUser";
+import { state, useDataUser } from "../../lib/dataUser";
 import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../../hooks/useLogin";
-import { result } from "../../hooks/senfFormModal";
+import { result } from "../../lib/sendFormModal";
 
 export function MyData() {
   const navigate = useNavigate();

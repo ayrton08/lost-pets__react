@@ -23,6 +23,7 @@
     "css-loader": "^6.7.1",
     "deck.gl": "^8.8.4",
     "dropzone": "^6.0.0-beta.2",
+    "firebase-tools": "^11.2.2",
     "live-server": "^1.2.2",
     "mapbox-gl": "^2.9.1",
     "react": "^18.2.0",

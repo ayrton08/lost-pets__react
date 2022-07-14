@@ -11,7 +11,7 @@ type ModalReport = {
   onReport?: (params: {
     fullname: string;
     cellphone: string;
-    info: string;
+    message: string;
   }) => any;
 };
 
@@ -21,12 +21,12 @@ export function ModalReport(props: ModalReport) {
     e.preventDefault();
     const fullname = e.target.fullname.value;
     const cellphone = e.target.cellphone.value;
-    const info = e.target.info.value;
+    const message = e.target.message.value;
 
     props.onReport({
       fullname,
       cellphone,
-      info,
+      message,
     });
     form.current.reset();
   }
@@ -53,7 +53,7 @@ export function ModalReport(props: ModalReport) {
 
           <span className={css.text}>¿Where did you see it?</span>
           <textarea
-            name="info"
+            name="message"
             className={css.textarea}
             placeholder="Write a place"
           ></textarea>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import css from "./welcome.css";
-import { useDataUser } from "../../hooks/useDataUser";
-import { state } from "../../hooks/useDataUser";
+import { useDataUser } from "../../lib/dataUser";
+import { state } from "../../lib/dataUser";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { ButtonGeneric } from "../../ui/buttons-generic/button-generic";
 
@@ -10,7 +10,7 @@ export function Welcome() {
   const newState = useRecoilValue(state);
   return (
     <div className={css.root}>
-      <h3>¡Welcome! </h3>
+      <h3 className={css.title}>¡Welcome! </h3>
       <span>
         To see the pets reported near you... we need permission to know your
         location

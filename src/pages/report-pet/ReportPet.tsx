@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import css from "./report-pet.css";
 import { ReportForm } from "../../components/form-report";
-import { doReport } from "../../hooks/doReport";
+import { doReport } from "../../lib/doReport";
 import { useParams } from "react-router-dom";
 import { updateReport } from "../../hooks/updateReport";
-import { result } from "../../hooks/senfFormModal";
+import { result } from "../../lib/sendFormModal";
 import { useNavigate } from "react-router-dom";
 
 export function ReportPet() {

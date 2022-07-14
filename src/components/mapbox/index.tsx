@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import css from "./mapbox.css";
-import { locationReport } from "../../hooks/location";
+import { locationReport } from "../../lib/location";
 import { useRecoilState } from "recoil";
 
 mapboxgl.accessToken =

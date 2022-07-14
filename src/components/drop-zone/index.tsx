@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import css from "./dropzone.css";
 import { useDropzone } from "react-dropzone";
-import { dropzone } from "../../hooks/dropzone-atom";
+import { dropzone } from "../../lib/dropzone-atom";
 import { useRecoilState } from "recoil";
 
 export function Dropzone() {
@@ -22,9 +22,6 @@ export function Dropzone() {
     onDrop,
   });
 
-//   useEffect(() => {
-//     console.log("images", images);
-//   }, [images]);
 
   return (
     <div>

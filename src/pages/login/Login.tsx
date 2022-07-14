@@ -3,7 +3,7 @@ import { Link, useNavigate, Navigate } from "react-router-dom";
 import css from "./login.css";
 import { LoginForm } from "../../components/login-comp";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { state } from "../../hooks/useDataUser";
+import { state } from "../../lib/dataUser";
 import { useLogin, login } from "../../hooks/useLogin";
 
 // arreglar el tipado de este componente

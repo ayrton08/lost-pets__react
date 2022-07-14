@@ -5,11 +5,12 @@ import { ResultsPets } from "../../components/results-pets";
 import { Loader } from "../../ui/loader/loader";
 import { ModalReport } from "../../components/modal-report";
 import { useModal } from "../../hooks/useModal";
-import { sendInfoPet } from "../../hooks/sendInfoPet";
-import { findById } from "../../hooks/findById";
+import { sendInfoPet } from "../../lib/sendInfoPet";
+import { findById } from "../../lib/findById";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { Logo } from "../../ui/logo/logo";
+import { dropzone } from "../../lib/dropzone-atom";
+import { useRecoilState } from "recoil";
 
 export function Home() {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ export function Home() {
   });
   const { isOpen, openModal, closeModal } = useModal(false);
   const [dataComplete, setDataComplete] = useState({});
+  const [picture, setPicture] = useRecoilState(dropzone);
 
   const search = async () => {
     if (dataPet.id) {
@@ -61,13 +63,14 @@ export function Home() {
   async function onSubmitHandler(dataForm) {
     !dataForm.fullname && alert("Falta el nombre");
     !dataForm.cellphone && alert("Falta el cellphone");
-    !dataForm.info && alert("¿Donde lo viste?");
+    !dataForm.message && alert("¿Donde lo viste?");
     const data = {
       ...dataForm,
       title: dataComplete["name"],
       emailOwner: dataComplete["email"],
     };
     const fetch = await sendInfoPet(data);
+    setPicture([]);
     fetch.email && result();
   }
 

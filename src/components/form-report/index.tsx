@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import css from "./report-form.css";
 import { ButtonForm } from "../../ui/button-form/ButtonForm";
 import { TextField } from "../../ui/text-field";
 import { Dropzone } from "../drop-zone";
-import { dropzone } from "../../hooks/dropzone-atom";
+import { dropzone } from "../../lib/dropzone-atom";
 import { useRecoilValue } from "recoil";
 import { Mapbox } from "../mapbox";
-import { locationReport } from "../../hooks/location";
+import { locationReport } from "../../lib/location";
 
 type ReportPet = {
   report: (params: {
@@ -24,6 +24,7 @@ type ReportPet = {
 
 export function ReportForm(props: ReportPet) {
   const locationCoor = useRecoilValue(locationReport);
+  const form = useRef(null);
 
   const picture = useRecoilValue(dropzone);
 
@@ -42,20 +43,19 @@ export function ReportForm(props: ReportPet) {
       state: true,
       location,
     });
+    form.current.reset();
   }
 
   return (
     <div className={css.container}>
-      <form className={css.root} onSubmit={onSubmitHandler}>
+      <form className={css.root} onSubmit={onSubmitHandler} ref={form}>
         <TextField type="text" name="name" placeholder="Name" />
         <TextField type="text" name="race" placeholder="Race" />
         <div className={css.dropzone}>
           <Dropzone />
         </div>
         <span className={css.instruction}>
-          By default the location where you are will be reported, if you wish to
-          indicate another location in the report you can do so on the map
-          below.
+          Please select the report location on the map.
         </span>
         <Mapbox></Mapbox>
         <div className={css.locationName}>
