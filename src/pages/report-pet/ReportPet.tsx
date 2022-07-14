@@ -13,6 +13,18 @@ export function ReportPet() {
   console.log("params", params);
 
   async function reportPet(dataForm) {
+    console.log("dataform", dataForm);
+    if (
+      !dataForm.name &&
+      !dataForm.raza &&
+      !dataForm.pictureURL &&
+      !dataForm.location &&
+      !dataForm.lat &&
+      !dataForm.lng
+    ) {
+      return alert("Faltan datos en el report");
+    }
+
     const report = await doReport(dataForm, token);
   }
 

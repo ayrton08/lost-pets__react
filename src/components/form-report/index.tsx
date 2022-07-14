@@ -16,13 +16,14 @@ type ReportPet = {
     pictureURL?: string;
     lat: number;
     lng: number;
+    location: string;
     state: any;
   }) => any;
   error?: String;
 };
 
 export function ReportForm(props: ReportPet) {
-  const location = useRecoilValue(locationReport);
+  const locationCoor = useRecoilValue(locationReport);
 
   const picture = useRecoilValue(dropzone);
 
@@ -30,14 +31,16 @@ export function ReportForm(props: ReportPet) {
     e.preventDefault();
     const name = e.target.name.value;
     const raza = e.target.race.value;
+    const location = e.target.location.value;
     const pictureURL = picture[0];
     props.report({
       name,
       raza,
       pictureURL,
-      lat: location["lat"],
-      lng: location["lng"],
+      lat: locationCoor["lat"],
+      lng: locationCoor["lng"],
       state: true,
+      location,
     });
   }
 
