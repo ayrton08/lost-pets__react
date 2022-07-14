@@ -57,8 +57,6 @@ export function Mapbox() {
     e.preventDefault();
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position.coords.latitude, position.coords.longitude);
-
         setLng(position.coords.longitude);
         setLat(position.coords.latitude);
         setZoom(14);
@@ -75,7 +73,9 @@ export function Mapbox() {
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
       </div>
       <div ref={mapContainer} className={css.container} />
-      <button onClick={myLocation} className={css.button}>Ir a mi ubicacion 🗺️</button>
+      <button onClick={myLocation} className={css.button}>
+        Ir a mi ubicacion 🗺️
+      </button>
     </div>
   );
 }

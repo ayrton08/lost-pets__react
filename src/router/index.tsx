@@ -37,6 +37,7 @@ export function AppRoutes() {
         <Route path="home" element={<Home />} />
         <Route path="my-data" element={<MyData />} />
         <Route path="my-reports" element={<MyReports />} />
+        <Route path="report-pet/:id" element={<ReportPet />} />
         <Route path="report-pet" element={<ReportPet />} />
       </Route>
     </Routes>

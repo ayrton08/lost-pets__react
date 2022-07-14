@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import css from "./my-reports.css";
 import { useResultsPets } from "../../hooks/useResultsPets";
 import { ResultsPets } from "../../components/results-pets";
@@ -10,14 +11,12 @@ import { useRecoilState } from "recoil";
 import { idPet } from "../../hooks/updateReport";
 
 export function MyReports() {
+  const navigate = useNavigate();
   const [dataPet, setDataPet] = useState({});
   const [id, setIdPet] = useRecoilState(idPet);
   const { isOpen, openModal, closeModal } = useModal(false);
 
   const myReports = useMyReports() || [];
-
-  console.log("myReports", myReports);
-  console.log("dataPet", id);
 
   return (
     <div className={css.root}>
@@ -40,13 +39,17 @@ export function MyReports() {
                     raza={r.raza}
                     location={r.location}
                     report={() => {
-                      openModal();
-                      setDataPet({
-                        id: r.objectID,
-                        name: r.name,
-                        raza: r.raza,
-                        pictureURL: r.pictureURL,
-                      });
+                      // openModal();
+                      // setDataPet({
+                      //   id: r.objectID,
+                      //   name: r.name,
+                      //   raza: r.raza,
+                      //   pictureURL: r.pictureURL,
+                      // });
+                      navigate(`/report-pet/${r.id}`, { replace: true });
+                      {
+                        /* <Link to="/report-pet/1">Link a home page</Link>; */
+                      }
                     }}
                     drop={() => {
                       setIdPet(r.id);

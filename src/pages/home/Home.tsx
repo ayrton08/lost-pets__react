@@ -14,7 +14,6 @@ import { Logo } from "../../ui/logo/logo";
 export function Home() {
   const navigate = useNavigate();
   const results = useResultsPets();
-  const [withoutResult, setWithoutResult] = useState(false);
   const [dataPet, setDataPet] = useState({
     id: null,
     name: "",
@@ -83,8 +82,7 @@ export function Home() {
         ) : (
           <div className={css.card}>
             {results.map((r) => {
-              if (r.state === "true") {
-                !r.state && setWithoutResult(true);
+              if (r.state) {
                 return (
                   <ResultsPets
                     key={r.objectID}
@@ -114,14 +112,6 @@ export function Home() {
                 );
               }
             })}
-          </div>
-        )}
-        {!withoutResult && (
-          <div className={css.without}>
-            <h3>No hay mascotas reportadas por el momento</h3>
-            <div>
-              <Logo />
-            </div>
           </div>
         )}
       </div>

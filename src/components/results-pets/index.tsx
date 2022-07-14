@@ -25,6 +25,7 @@ export function ResultsPets(props: ResultsPets) {
     const token = JSON.parse(localStorage.getItem("token"));
     const updateFetch = await updateReport({ state: false }, token, idReport);
   }
+  
   return (
     <div
       className={window.location.pathname === "/home" ? css.card : css.mycard}

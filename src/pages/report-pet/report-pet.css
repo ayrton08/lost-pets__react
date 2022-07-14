@@ -4,10 +4,23 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  /* gap: 20px; */
   min-height: 100vh;
   height: 100%;
   background-color: #181817;
+  color: antiquewhite;
+}
+
+.edit {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  /* gap: 20px; */
+  min-height: 100vh;
+  height: 100%;
+  background-color: #0B5345  ;
   color: antiquewhite;
 }
 
@@ -25,4 +38,7 @@
   }
 }
 
-
+.title {
+  font-family: "Josefin Sans", sans-serif;
+  padding-top: 15px;
+}

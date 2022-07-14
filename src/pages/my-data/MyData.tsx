@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 export function MyData() {
   const stateLogin = useRecoilValue(state);
   const navigate = useNavigate();
+  
   function result() {
     const Toast = Swal.mixin({
       toast: true,

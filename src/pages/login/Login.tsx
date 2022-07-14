@@ -11,14 +11,12 @@ export function Login() {
   const navigate = useNavigate();
   const newState = useRecoilValue(state);
   const loginState = useRecoilValue(login);
-  console.log("newState", newState);
 
   const [value, setValue] = useRecoilState(state);
   const [error, setError] = useState("");
 
   useEffect(() => {
     if (newState) {
-      console.log("loginState", loginState);
       localStorage.setItem("token", JSON.stringify(newState));
     }
   }, [newState]);
