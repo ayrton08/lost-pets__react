@@ -1,6 +1,7 @@
 /* From uiverse.io by @alexruix */
 /* From uiverse.io by @alexruix */
 .input {
+  font-size: 25px;
   line-height: 18px;
   border: 2px solid transparent;
   border-bottom-color: #777;
@@ -9,7 +10,7 @@
   background-color: transparent;
   color: antiquewhite;
   transition: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  min-width: 190px;
+  min-width: 210px;
 }
 
 .input:focus,
