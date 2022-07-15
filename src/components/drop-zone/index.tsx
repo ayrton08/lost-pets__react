@@ -7,6 +7,7 @@ import { useRecoilState } from "recoil";
 export function Dropzone() {
   //   const [images, setImages] = useState([]);
   const [images, setImages] = useRecoilState(dropzone);
+  const container = useRef(null);
 
   const onDrop = useCallback((acceptedFiles, rejectFiles) => {
     acceptedFiles.forEach((file) => {
@@ -22,10 +23,13 @@ export function Dropzone() {
     onDrop,
   });
 
+  if (images.length > 0) {
+    container.current.style.display = "none";
+  }
 
   return (
     <div>
-      <div className={css.container} {...getRootProps()}>
+      <div className={css.container} {...getRootProps()} ref={container}>
         <input {...getInputProps()} />
         {isDragActive ? "Drag Active" : "You can drop your picture here"}
       </div>
