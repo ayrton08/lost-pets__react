@@ -82,41 +82,37 @@ export function Home() {
         {isLoading ? (
           <div className={css.root}>{<Loader />}</div>
         ) : dogsMissing ? (
-          dogsMissing === [] ? (
-            <div className={css.card}>
-              {dogsMissing.map((r) => {
-                return (
-                  <ResultsPets
-                    key={r.objectID}
-                    content="Report"
-                    pictureURL={r.pictureURL}
-                    name={r.name}
-                    raza={r.raza}
-                    location={r.location}
-                    report={() => {
-                      openModal();
-                      setDataPet({
-                        id: r.objectID,
-                        name: r.name,
-                        raza: r.raza,
-                        pictureURL: r.pictureURL,
-                      });
-                    }}
-                  >
-                    <ModalReport
-                      isOpen={isOpen}
-                      closeModal={closeModal}
-                      name={dataPet["name"]}
-                      img={dataPet["pictureURL"]}
-                      onReport={(val) => onSubmitHandler(val)}
-                    />
-                  </ResultsPets>
-                );
-              })}
-            </div>
-          ) : (
-            <div className={css.message}>No pets reported in your area</div>
-          )
+          <div className={css.card}>
+            {dogsMissing.map((r) => {
+              return (
+                <ResultsPets
+                  key={r.objectID}
+                  content="Report"
+                  pictureURL={r.pictureURL}
+                  name={r.name}
+                  raza={r.raza}
+                  location={r.location}
+                  report={() => {
+                    openModal();
+                    setDataPet({
+                      id: r.objectID,
+                      name: r.name,
+                      raza: r.raza,
+                      pictureURL: r.pictureURL,
+                    });
+                  }}
+                >
+                  <ModalReport
+                    isOpen={isOpen}
+                    closeModal={closeModal}
+                    name={dataPet["name"]}
+                    img={dataPet["pictureURL"]}
+                    onReport={(val) => onSubmitHandler(val)}
+                  />
+                </ResultsPets>
+              );
+            })}
+          </div>
         ) : (
           <div className={css.message}>No pets reported in your area</div>
         )}
