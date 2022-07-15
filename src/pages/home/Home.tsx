@@ -15,6 +15,7 @@ import { useRecoilState } from "recoil";
 export function Home() {
   const navigate = useNavigate();
   const results = useResultsPets();
+  console.log("results", results);
   const [dataPet, setDataPet] = useState({
     id: null,
     name: "",
@@ -74,50 +75,56 @@ export function Home() {
     fetch.email && result();
   }
 
+  let cantidadResults = false;
+  useEffect(() => {
+    results &&
+      results.filter((item) => {
+        item.state ? (cantidadResults = true) : null;
+      });
+  }, [results]);
+
   return (
     <div className={css.root}>
       <h2 className={css.title}>Home</h2>
       <div>
-        {results.length === 0 ? (
+        {!results ? (
           <div className={css.root}>{<Loader />}</div>
-        ) : (
+        ) : cantidadResults ? (
           <div className={css.card}>
-            {results.length === 0 ? (
-              <div>No hay reportes de mascotas en tu zona</div>
-            ) : (
-              results.map((r) => {
-                if (r.state) {
-                  return (
-                    <ResultsPets
-                      key={r.objectID}
-                      content="Report"
-                      pictureURL={r.pictureURL}
-                      name={r.name}
-                      raza={r.raza}
-                      location={r.location}
-                      report={() => {
-                        openModal();
-                        setDataPet({
-                          id: r.objectID,
-                          name: r.name,
-                          raza: r.raza,
-                          pictureURL: r.pictureURL,
-                        });
-                      }}
-                    >
-                      <ModalReport
-                        isOpen={isOpen}
-                        closeModal={closeModal}
-                        name={dataPet["name"]}
-                        img={dataPet["pictureURL"]}
-                        onReport={(val) => onSubmitHandler(val)}
-                      />
-                    </ResultsPets>
-                  );
-                }
-              })
-            )}
+            {results.map((r) => {
+              if (r.state) {
+                return (
+                  <ResultsPets
+                    key={r.objectID}
+                    content="Report"
+                    pictureURL={r.pictureURL}
+                    name={r.name}
+                    raza={r.raza}
+                    location={r.location}
+                    report={() => {
+                      openModal();
+                      setDataPet({
+                        id: r.objectID,
+                        name: r.name,
+                        raza: r.raza,
+                        pictureURL: r.pictureURL,
+                      });
+                    }}
+                  >
+                    <ModalReport
+                      isOpen={isOpen}
+                      closeModal={closeModal}
+                      name={dataPet["name"]}
+                      img={dataPet["pictureURL"]}
+                      onReport={(val) => onSubmitHandler(val)}
+                    />
+                  </ResultsPets>
+                );
+              }
+            })}
           </div>
+        ) : (
+          <div className={css.message}>No hay mascotas reportadas</div>
         )}
       </div>
     </div>

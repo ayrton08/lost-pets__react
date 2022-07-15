@@ -11,7 +11,7 @@ type ResponsePets = {
 };
 
 export function useResultsPets(): Array<ResponsePets> {
-  const [resultsReports, setResultsReports] = useState([]);
+  const [resultsReports, setResultsReports] = useState(null);
   const location = useLocation();
 
   async function reportsClose(lat: string, lng: string) {

@@ -12,11 +12,8 @@ export function ReportPet() {
   const token = JSON.parse(localStorage.getItem("token"));
 
   const params = useParams();
-  params.id && console.log("soy params");
-  console.log("params", params);
 
   async function reportPet(dataForm) {
-    console.log("dataform", dataForm);
     if (
       !dataForm.name &&
       !dataForm.raza &&
