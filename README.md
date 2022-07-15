@@ -10,7 +10,7 @@ Web app to report lost pets by using geographic location
 
 ## Description:
 
-- This project is the frontend of the challenges made in module 7 of the Apx Fullstack course, the objective was to recreate the frontend that had been made with Vanilla JS now using the React framework and other tools\*
+- *This project is the frontend of the challenges made in module 7 of the Apx Fullstack course, the objective was to recreate the frontend that had been made with Vanilla JS now using the React framework and other tools*
 
 ## Tech Stack
 
