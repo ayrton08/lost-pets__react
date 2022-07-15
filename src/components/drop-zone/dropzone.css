@@ -25,6 +25,8 @@
 
 .image {
   min-width: 200px;
+  max-width: 350px;
+  
   height: 100%;
   border-radius: 3px;
   object-fit: cover;
@@ -32,5 +34,6 @@
 @media (min-width: 600px) {
   .image {
     min-width: 350px;
+    max-width: 400px;
   }
 }
