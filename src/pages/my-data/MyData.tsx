@@ -25,10 +25,11 @@ export function MyData() {
     navigate("/home", { replace: true });
   }
 
-  console.log("stateLogin", stateLogin);
+  const token = localStorage.getItem("token");
+
   return (
     <div className={css.root}>
-      {!stateLogin ? (
+      {!token ? (
         <Navigate to="/login" replace={true} />
       ) : (
         <FormMyData myData={(val) => newData(val)} />

@@ -22,7 +22,6 @@ export function Header() {
     return navigate("/", { replace: true });
   }
 
-  console.log("dataUser", dataUser);
   return (
     <div>
       <header className={css.root}>

@@ -16,56 +16,55 @@ export function MyReports() {
   const [id, setIdPet] = useRecoilState(idPet);
   const { isOpen, openModal, closeModal } = useModal(false);
 
-  const myReports = useMyReports() || [];
+  const [myReports, isLoading] = useMyReports() || [];
+  const haveReports =
+    myReports.length > 0 && myReports.filter((dog) => dog.state);
+
 
   return (
     <div className={css.root}>
       <h2 className={css.title}>My Reports</h2>
       <div>
-        {myReports.length === 0 ? (
+        {isLoading ? (
           <div className={css.root}>
             <Loader />
           </div>
+        ) : haveReports ? (
+          haveReports === [] ? (
+            <div className={css.card}>
+              {myReports.map((r) => {
+                if (r.state === "true") {
+                  return (
+                    <ResultsPets
+                      key={r.id}
+                      content="Edit"
+                      pictureURL={r.pictureURL}
+                      name={r.name}
+                      raza={r.raza}
+                      location={r.location}
+                      report={() => {
+                        navigate(`/report-pet/${r.id}`, { replace: true });
+                      }}
+                      drop={() => {
+                        setIdPet(r.id);
+                      }}
+                    >
+                      <ModalReport
+                        isOpen={isOpen}
+                        closeModal={closeModal}
+                        name={dataPet["name"]}
+                        img={dataPet["pictureURL"]}
+                      />
+                    </ResultsPets>
+                  );
+                }
+              })}
+            </div>
+          ) : (
+            <div className={css.message}>You don't have reports pets</div>
+          )
         ) : (
-          <div className={css.card}>
-            {myReports.map((r) => {
-              if (r.state === "true") {
-                return (
-                  <ResultsPets
-                    key={r.id}
-                    content="Edit"
-                    pictureURL={r.pictureURL}
-                    name={r.name}
-                    raza={r.raza}
-                    location={r.location}
-                    report={() => {
-                      // openModal();
-                      // setDataPet({
-                      //   id: r.objectID,
-                      //   name: r.name,
-                      //   raza: r.raza,
-                      //   pictureURL: r.pictureURL,
-                      // });
-                      navigate(`/report-pet/${r.id}`, { replace: true });
-                      {
-                        /* <Link to="/report-pet/1">Link a home page</Link>; */
-                      }
-                    }}
-                    drop={() => {
-                      setIdPet(r.id);
-                    }}
-                  >
-                    <ModalReport
-                      isOpen={isOpen}
-                      closeModal={closeModal}
-                      name={dataPet["name"]}
-                      img={dataPet["pictureURL"]}
-                    />
-                  </ResultsPets>
-                );
-              }
-            })}
-          </div>
+          <div className={css.message}>You don't have reports pets</div>
         )}
       </div>
     </div>

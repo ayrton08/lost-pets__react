@@ -33,3 +33,9 @@
     font-size: 45px;
   }
 }
+.message {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 25px;
+  padding: 20px;
+  color: springgreen;
+}
