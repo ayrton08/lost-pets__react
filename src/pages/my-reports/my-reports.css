@@ -28,3 +28,8 @@
   font-family: "Josefin Sans", sans-serif;
   padding: 20px;
 }
+@media (min-width: 600px) {
+  .title {
+    font-size: 45px;
+  }
+}

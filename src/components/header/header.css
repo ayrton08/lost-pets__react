@@ -5,21 +5,47 @@
   height: 60px;
   padding: 10px;
 }
+@media (min-width: 600px) {
+  .root {
+    height: 90px;
+    padding: 10px;
+  }
+}
 
 .logo {
   font-size: 30px;
   cursor: pointer;
 }
 
+@media (min-width: 600px) {
+  .logo {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-size: 45px;
+  }
+}
+
 .menu {
   font-size: 30px;
   cursor: pointer;
+}
+@media (min-width: 600px) {
+  .menu {
+    padding-bottom: 15px;
+  }
 }
 
 .links {
   color: #cfd8dc;
   text-decoration: none;
   font-size: 20px;
+}
+
+@media (min-width: 600px) {
+  .links {
+    font-size: 30px;
+    font-family: "Josefin Sans", sans-serif;
+  }
 }
 
 .links:hover {
@@ -43,6 +69,14 @@
   z-index: 1;
   font-family: inherit;
   /* border-radius: 3px; */
+}
+
+@media (min-width: 600px) {
+  .btn {
+    font-size: 50px;
+    font-weight: 600;
+    padding-bottom: 10px;
+  }
 }
 
 .btn::before {

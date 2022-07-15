@@ -10,6 +10,13 @@
   color: antiquewhite;
   min-height: 100vh;
 }
-.title{
+.title {
   font-size: 45px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+@media (min-width: 600px) {
+  .title {
+    font-size: 70px;
+  }
 }

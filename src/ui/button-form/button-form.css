@@ -14,6 +14,12 @@
   cursor: pointer;
 }
 
+@media(min-width:600px){
+  .button{
+    font-size: 15px;
+  }
+}
+
 .button::after {
   --m-i: linear-gradient(#000, #000);
   --m-o: content-box, padding-box;

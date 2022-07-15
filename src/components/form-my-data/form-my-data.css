@@ -7,7 +7,7 @@
   background-color: #212121;
   color: antiquewhite;
   min-height: 100vh;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 .root {
   display: flex;
@@ -16,14 +16,25 @@
   align-items: center;
   justify-content: center;
   gap: 30px;
-  width: 300px;
+  min-width: 290px;
   background-color: #212121;
   color: antiquewhite;
   min-height: 100vh;
   padding-bottom: 50px;
 }
+@media (min-width: 600px) {
+  .root {
+    min-width: 450px;
+  }
+}
 
 .title {
   font-family: "Josefin Sans", sans-serif;
   padding: 20px;
+}
+
+@media (min-width: 600px) {
+  .title {
+    font-size: 45px;
+  }
 }

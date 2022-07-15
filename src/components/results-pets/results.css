@@ -1,15 +1,16 @@
 .image {
-  max-width: 100%;
+  width: 100%;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   align-content: center;
-  padding: 20px;
-  max-width: 300px;
+  padding: 30px;
+  min-width: 250px;
+  max-width: 270px;
+  min-height: 320px;
   color: antiquewhite;
-  height: 290px;
   background-image: linear-gradient(144deg, #2c3e50, #186a3b);
   border: none;
   position: relative;
@@ -21,9 +22,15 @@
   position: relative;
   z-index: 1;
 }
+@media (min-width: 600px) {
+  .card {
+    min-width: 280px;
+    max-height: 400px;
+  }
+}
 
 .card span {
-  font-weight: 400;
+  font-size: 15px;
   align-content: center;
   text-align: center;
   display: block;
@@ -33,14 +40,18 @@
 .card .job {
   text-align: center;
   padding-top: 5px;
-  font-size: 1.5em;
+  font-size: 30px;
   font-weight: bold;
   color: tomato;
 }
+@media (min-width: 600px) {
+  .card .job {
+    font-size: 40px;
+  }
+}
 
 .card .img {
-  width: 150px;
-  height: 105px;
+  width: 100%;
   background: #e8e8e8;
   border-radius: 5px;
 }
@@ -87,10 +98,11 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-  padding: 0px 15px 15px 15px;
-  max-width: 300px;
+  padding: 0px 20px 20px 20px;
+  min-width: 250px;
+  max-width: 270px;
+  min-height: 320px;
   color: antiquewhite;
-  height: 290px;
   background-image: linear-gradient(144deg, #37474f, #37474f);
   border: none;
   position: relative;
@@ -103,8 +115,15 @@
   z-index: 1;
 }
 
+@media (min-width: 600px) {
+  .mycard {
+    min-width: 280px;
+    max-height: 400px;
+  }
+}
+
 .mycard span {
-  font-weight: 300;
+  font-size: 15px;
   text-align: center;
   display: block;
   padding-top: 10px;
@@ -113,14 +132,19 @@
 .mycard .job {
   text-align: center;
   padding-top: 5px;
-  font-size: 1.5em;
+  font-size: 30px;
   font-weight: bold;
   color: #8e44ad;
 }
 
+@media (min-width: 600px) {
+  .card .job {
+    font-size: 40px;
+  }
+}
+
 .mycard .img {
   width: 100%;
-  height: 105px;
   background: #e8e8e8;
   border-radius: 5px;
 }

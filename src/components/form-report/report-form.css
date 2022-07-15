@@ -108,5 +108,11 @@
 }
 
 .locationName {
-  font-size: 10px;
+  font-size: 15px;
+}
+
+@media (min-width: 600px) {
+  .locationName {
+    font-size: 25px;
+  }
 }
