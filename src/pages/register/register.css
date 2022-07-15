@@ -11,4 +11,10 @@
 .title {
   font-family: "Josefin Sans", sans-serif;
   padding: 20px;
+  font-size: 45px;
+}
+@media (min-width: 600px) {
+  .title {
+    font-size: 55px;
+  }
 }

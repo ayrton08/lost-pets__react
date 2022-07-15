@@ -9,13 +9,19 @@ type ResponsePets = {
   location: any;
   state?: string;
 };
+type Response = {
+  results: Array<ResponsePets>;
+  isLoading: boolean;
+};
 
-export function useResultsPets(): Array<ResponsePets> {
-  const [resultsReports, setResultsReports] = useState(null);
+export function useResultsPets(): Response {
+  const [results, setResultsReports] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
 
   async function reportsClose(lat: string, lng: string) {
     if (lat && lng) {
+      setIsLoading(true);
       const response = await fetch(
         `https://dwf-m7-postgre.herokuapp.com/api/v1/pets/find-by-location?lat=${lat}&lng=${lng}`,
         {
@@ -26,6 +32,7 @@ export function useResultsPets(): Array<ResponsePets> {
         }
       );
       const data = await response.json();
+      setIsLoading(false);
       setResultsReports(data);
       return data;
     }
@@ -34,5 +41,5 @@ export function useResultsPets(): Array<ResponsePets> {
     reportsClose(location["lat"], location["lng"]);
   }, [location]);
 
-  return resultsReports;
+  return { results, isLoading };
 }

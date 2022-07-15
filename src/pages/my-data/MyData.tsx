@@ -6,7 +6,7 @@ import { state, useDataUser } from "../../lib/dataUser";
 import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../../hooks/useLogin";
 import { result } from "../../lib/sendFormModal";
-import css from "./my-data.css"
+import css from "./my-data.css";
 
 export function MyData() {
   const navigate = useNavigate();
@@ -25,6 +25,7 @@ export function MyData() {
     navigate("/home", { replace: true });
   }
 
+  console.log("stateLogin", stateLogin);
   return (
     <div className={css.root}>
       {!stateLogin ? (

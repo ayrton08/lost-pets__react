@@ -14,8 +14,7 @@ import { useRecoilState } from "recoil";
 
 export function Home() {
   const navigate = useNavigate();
-  const results = useResultsPets();
-  console.log("results", results);
+  const { results, isLoading } = useResultsPets();
   const [dataPet, setDataPet] = useState({
     id: null,
     name: "",
@@ -25,6 +24,7 @@ export function Home() {
   const { isOpen, openModal, closeModal } = useModal(false);
   const [dataComplete, setDataComplete] = useState({});
   const [picture, setPicture] = useRecoilState(dropzone);
+  const dogsMissing = results.length > 0 && results.filter((dog) => dog.state);
 
   const search = async () => {
     if (dataPet.id) {
@@ -75,24 +75,16 @@ export function Home() {
     fetch.email && result();
   }
 
-  let cantidadResults = false;
-  useEffect(() => {
-    results &&
-      results.filter((item) => {
-        item.state ? (cantidadResults = true) : null;
-      });
-  }, [results]);
-
   return (
     <div className={css.root}>
       <h2 className={css.title}>Home</h2>
       <div>
-        {!results ? (
+        {isLoading ? (
           <div className={css.root}>{<Loader />}</div>
-        ) : cantidadResults ? (
-          <div className={css.card}>
-            {results.map((r) => {
-              if (r.state) {
+        ) : dogsMissing ? (
+          dogsMissing === [] ? (
+            <div className={css.card}>
+              {dogsMissing.map((r) => {
                 return (
                   <ResultsPets
                     key={r.objectID}
@@ -120,11 +112,13 @@ export function Home() {
                     />
                   </ResultsPets>
                 );
-              }
-            })}
-          </div>
+              })}
+            </div>
+          ) : (
+            <div className={css.message}>No pets reported in your area</div>
+          )
         ) : (
-          <div className={css.message}>No hay mascotas reportadas</div>
+          <div className={css.message}>No pets reported in your area</div>
         )}
       </div>
     </div>

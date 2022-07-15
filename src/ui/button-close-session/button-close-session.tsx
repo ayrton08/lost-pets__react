@@ -4,7 +4,7 @@ import css from "./button-close-session.css";
 export function ButtonClose({ closeSession }) {
   return (
     <button onClick={closeSession} className={css.button}>
-      <span className={css.label}>Salir</span>
+      <span className={css.label}>Sign out</span>
       <span className={css.icon}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

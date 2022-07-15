@@ -6,11 +6,13 @@ import { useModal } from "../../hooks/useModal";
 import { state } from "../../lib/dataUser";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { ButtonClose } from "../../ui/button-close-session/button-close-session";
+import { login } from "../../hooks/useLogin";
 
 export function Header() {
   const navigate = useNavigate();
   const { isOpen, openModal, closeModal } = useModal(false);
   const [stateUser, setStateUser] = useRecoilState(state);
+  const dataUser = useRecoilValue(login);
 
   function closeSession(e) {
     e.preventDefault();
@@ -19,10 +21,8 @@ export function Header() {
     closeModal();
     return navigate("/", { replace: true });
   }
-  // useEffect(() => {
-  //   console.log("stateUser Effect", stateUser);
-  // }, [stateUser]);
 
+  console.log("dataUser", dataUser);
   return (
     <div>
       <header className={css.root}>
@@ -52,7 +52,12 @@ export function Header() {
             <Link to="/report-pet" onClick={closeModal} className={css.links}>
               Report Pets
             </Link>
-            <ButtonClose closeSession={closeSession}></ButtonClose>
+            <div className={css.footer}>
+              {dataUser ? (
+                <span className={css.email}>{`${dataUser["email"]}`}</span>
+              ) : null}
+              <ButtonClose closeSession={closeSession}></ButtonClose>
+            </div>
           </MenuModal>
         )}
       </header>

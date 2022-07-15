@@ -10,10 +10,12 @@
   width: 100%;
   gap: 20px;
   padding: 20px;
-  max-width: 300px;
+  min-width: 300px;
+  max-width: 450px;
 }
 @media (min-width: 600px) {
   .root {
     min-width: 500px;
+    max-width: 550px;
   }
 }
