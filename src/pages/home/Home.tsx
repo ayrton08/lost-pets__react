@@ -26,6 +26,8 @@ export function Home() {
   const [picture, setPicture] = useRecoilState(dropzone);
   const dogsMissing = results.length > 0 && results.filter((dog) => dog.state);
 
+  console.log("results", results);
+
   const search = async () => {
     if (dataPet.id) {
       const res = await findById(dataPet.id);

@@ -15,23 +15,25 @@ export function ReportPet() {
 
   async function reportPet(dataForm) {
     if (
-      !dataForm.name &&
-      !dataForm.raza &&
-      !dataForm.pictureURL &&
-      !dataForm.location &&
-      !dataForm.lat &&
+      !dataForm.name ||
+      !dataForm.raza ||
+      !dataForm.pictureURL ||
+      !dataForm.location ||
+      !dataForm.lat ||
       !dataForm.lng
     ) {
       return alert("Faltan datos en el report");
     }
 
-    await doReport(dataForm, token);
+    console.log("dataForm", dataForm);
+    const res = await doReport(dataForm, token);
+    console.log("res", res);
     result("Successful Report");
     return navigate("/my-reports", { replace: true });
   }
 
   async function updatePet(dataForm) {
-    await updateReport(dataForm, token, params.id);
+    const res = await updateReport(dataForm, token, params.id);
     result("Successful Update");
     return navigate("/my-reports", { replace: true });
   }

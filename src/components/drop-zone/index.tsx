@@ -23,9 +23,9 @@ export function Dropzone() {
     onDrop,
   });
 
-  if (images.length > 0) {
-    container.current.style.display = "none";
-  }
+  // if (images.length > 0) {
+  //   container.current.style.display = "none";
+  // }
 
   return (
     <div>

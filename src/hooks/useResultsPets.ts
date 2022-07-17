@@ -34,6 +34,7 @@ export function useResultsPets(): Response {
       const data = await response.json();
       setIsLoading(false);
       setResultsReports(data);
+      console.log("data", data);
       return data;
     }
   }
