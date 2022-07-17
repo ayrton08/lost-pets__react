@@ -25,9 +25,7 @@ export function ReportPet() {
       return alert("Faltan datos en el report");
     }
 
-    console.log("dataForm", dataForm);
     const res = await doReport(dataForm, token);
-    console.log("res", res);
     result("Successful Report");
     return navigate("/my-reports", { replace: true });
   }

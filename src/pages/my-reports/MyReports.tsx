@@ -20,7 +20,6 @@ export function MyReports() {
   const haveReports =
     myReports.length > 0 && myReports.filter((dog) => dog.state);
 
-  console.log("myReports", myReports);
 
   return (
     <div className={css.root}>
