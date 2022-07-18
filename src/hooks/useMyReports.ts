@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
-const token = JSON.parse(localStorage.getItem("token"));
-
 export function useMyReports(): Array<any> {
   const [reports, setReports] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const token = JSON.parse(localStorage.getItem("token"));
 
   useEffect(() => {
     reportsFetch();
