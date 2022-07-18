@@ -5,27 +5,29 @@ import { LoginForm } from "../../components/login-comp";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { state } from "../../lib/dataUser";
 import { useLogin, login } from "../../hooks/useLogin";
+import { useDataUser } from "../../lib/dataUser";
 
 // arreglar el tipado de este componente
 export function Login() {
   const navigate = useNavigate();
-  const newState = useRecoilValue(state);
-  const loginState = useRecoilValue(login);
+  const [newState, setNewState] = useRecoilState(state);
+  const [loginState, setLoginState] = useRecoilState(login);
 
   const [value, setValue] = useRecoilState(state);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    if (newState) {
-      localStorage.setItem("token", JSON.stringify(newState));
-    }
-  }, [newState]);
-
   async function loginIn(dataForm) {
     const res = await useLogin(dataForm.email, dataForm.password);
+
+    console.log("res", res);
+    localStorage.setItem("token", JSON.stringify(res));
+    setNewState(res);
+    
     if (res === null) {
       setError("Error en el login");
     } else {
+      const newData = await useDataUser();
+      setLoginState(newData);
       setValue(res);
       return navigate("/home", { replace: true });
     }

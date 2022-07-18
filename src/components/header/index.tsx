@@ -12,11 +12,14 @@ export function Header() {
   const navigate = useNavigate();
   const { isOpen, openModal, closeModal } = useModal(false);
   const [stateUser, setStateUser] = useRecoilState(state);
-  const dataUser = useRecoilValue(login);
+  console.log("stateUser", stateUser);
+  const [dataUser, setDataUser] = useRecoilState(login);
+  console.log("dataUser", dataUser);
 
   function closeSession(e) {
     e.preventDefault();
     setStateUser(false);
+    setDataUser(null);
     localStorage.removeItem("token");
     closeModal();
     return navigate("/", { replace: true });
@@ -53,7 +56,9 @@ export function Header() {
             </Link>
             <div className={css.footer}>
               {dataUser ? (
-                <span className={css.email}>{`${dataUser["email"]}`}</span>
+                <span className={css.email}>{`${
+                  dataUser["email"] || ""
+                }`}</span>
               ) : null}
               <ButtonClose closeSession={closeSession}></ButtonClose>
             </div>

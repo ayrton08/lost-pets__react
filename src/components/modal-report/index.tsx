@@ -38,7 +38,7 @@ export function ModalReport(props: ModalReport) {
           🐾
         </button>
         <form className={css.form} onSubmit={onSubmitHandler} ref={form}>
-          <span className={css.title}>{props.name}</span>
+          <span className={css.titleModal}>{props.name}</span>
           <img src={props.img} className={css.image}></img>
           <TextField
             type="text"

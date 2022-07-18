@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZnVsbG5hbWUiOiJheXJ0b24ganVhcmV6IiwiZW1haWwiOiJheXJ0b25qdWFyZXo5MEBnbWFpbC5jb20iLCJwaWN0dXJlVVJMIjpudWxsLCJsYXQiOm51bGwsImxuZyI6bnVsbCwiY3JlYXRlZEF0IjoiMjAyMi0wNi0yOFQxODoyOTowMS4wNTlaIiwidXBkYXRlZEF0IjoiMjAyMi0wNy0wOFQwNDozOToyNy41OTNaIiwiaWF0IjoxNjU3MjkxMTk2fQ.Havu1ZodhX30W1V2hwnDfp4QHxdSXrwoKuUNcDBe8wc";
+const token = JSON.parse(localStorage.getItem("token"));
+console.log("token", token);
 
 export function useMyReports(): Array<any> {
   const [reports, setReports] = useState([]);
