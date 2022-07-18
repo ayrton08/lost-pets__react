@@ -125,9 +125,9 @@
 
 .on {
   border: 2px dotted gray;
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: azure;
-  height: 150px;
+  height: 180px;
   min-width: 200px;
   opacity: 0.7;
   color: slategray;
@@ -139,6 +139,7 @@
   .on {
     width: 350px;
     font-size: 25px;
+    border-radius: 8px;
   }
 }
 

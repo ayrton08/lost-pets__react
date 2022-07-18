@@ -12,3 +12,22 @@
   font-family: "Josefin Sans", sans-serif;
   padding: 20px;
 }
+
+/* .login {
+  white-space: nowrap;
+  width: 5ch;
+  border-right: 4px solid;
+  animation: typing 2s steps(5), blink 0.5s infinite step-end alternate;
+  overflow: hidden;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+} */
