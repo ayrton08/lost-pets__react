@@ -12,9 +12,7 @@ export function Header() {
   const navigate = useNavigate();
   const { isOpen, openModal, closeModal } = useModal(false);
   const [stateUser, setStateUser] = useRecoilState(state);
-  console.log("stateUser", stateUser);
   const [dataUser, setDataUser] = useRecoilState(login);
-  console.log("dataUser", dataUser);
 
   function closeSession(e) {
     e.preventDefault();

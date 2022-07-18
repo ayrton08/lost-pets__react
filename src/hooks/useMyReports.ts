@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 const token = JSON.parse(localStorage.getItem("token"));
-console.log("token", token);
 
 export function useMyReports(): Array<any> {
   const [reports, setReports] = useState([]);

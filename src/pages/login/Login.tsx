@@ -19,10 +19,9 @@ export function Login() {
   async function loginIn(dataForm) {
     const res = await useLogin(dataForm.email, dataForm.password);
 
-    console.log("res", res);
     localStorage.setItem("token", JSON.stringify(res));
     setNewState(res);
-    
+
     if (res === null) {
       setError("Error en el login");
     } else {
