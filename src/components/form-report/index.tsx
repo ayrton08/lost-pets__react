@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { Children, useRef } from "react";
 import { Link } from "react-router-dom";
 import css from "./report-form.css";
 import { ButtonForm } from "../../ui/button-form/ButtonForm";
@@ -20,6 +20,7 @@ type ReportPet = {
     state: any;
   }) => any;
   error?: String;
+  children: string;
 };
 
 export function ReportForm(props: ReportPet) {
@@ -72,7 +73,7 @@ export function ReportForm(props: ReportPet) {
           className={css.textarea}
           placeholder="Write a place"
         ></textarea> */}
-        <button className={css.report}>Report</button>
+        <button className={css.report}>{props.children}</button>
         <Link to="/home">
           <button className={css.cancel}>Cancel</button>
         </Link>

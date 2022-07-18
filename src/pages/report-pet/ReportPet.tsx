@@ -9,11 +9,13 @@ import { useNavigate } from "react-router-dom";
 
 export function ReportPet() {
   const navigate = useNavigate();
+  const [isSending, setIsSending] = useState(false);
   const token = JSON.parse(localStorage.getItem("token"));
 
   const params = useParams();
 
   async function reportPet(dataForm) {
+    setIsSending(true);
     if (
       !dataForm.name ||
       !dataForm.raza ||
@@ -26,6 +28,7 @@ export function ReportPet() {
     }
 
     const res = await doReport(dataForm, token);
+    setIsSending(false);
     result("Successful Report");
     return navigate("/my-reports", { replace: true });
   }
@@ -39,12 +42,18 @@ export function ReportPet() {
   return params.id ? (
     <div className={css.edit}>
       <h2 className={css.title}>Edit Report</h2>
-      <ReportForm report={(val) => updatePet(val)}></ReportForm>
+      <ReportForm
+        report={(val) => updatePet(val)}
+        children={isSending ? "Sending..." : "Update"}
+      ></ReportForm>
     </div>
   ) : (
     <div className={css.root}>
       <h2 className={css.title}>Report</h2>
-      <ReportForm report={(val) => reportPet(val)}></ReportForm>
+      <ReportForm
+        report={(val) => reportPet(val)}
+        children={isSending ? "Sending..." : "Report"}
+      ></ReportForm>
     </div>
   );
 }
