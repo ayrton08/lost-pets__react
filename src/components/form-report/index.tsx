@@ -1,4 +1,4 @@
-import React, { Children, useRef } from "react";
+import React, { Children, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import css from "./report-form.css";
 import { ButtonForm } from "../../ui/button-form/ButtonForm";
@@ -8,6 +8,7 @@ import { dropzone } from "../../lib/dropzone-atom";
 import { useRecoilValue } from "recoil";
 import { Mapbox } from "../mapbox";
 import { locationReport } from "../../lib/location";
+import { useRecoilState } from "recoil";
 
 type ReportPet = {
   report: (params: {
@@ -26,6 +27,7 @@ type ReportPet = {
 export function ReportForm(props: ReportPet) {
   const locationCoor = useRecoilValue(locationReport);
   const form = useRef(null);
+  const [images, setImages] = useRecoilState(dropzone);
 
   const picture = useRecoilValue(dropzone);
 
@@ -44,6 +46,8 @@ export function ReportForm(props: ReportPet) {
       state: true,
       location,
     });
+    setImages([]);
+
     form.current.reset();
   }
 
@@ -53,10 +57,10 @@ export function ReportForm(props: ReportPet) {
         <TextField type="text" name="name" placeholder="Name" />
         <TextField type="text" name="race" placeholder="Race" />
         <div className={css.dropzone}>
-          <Dropzone />
+          <Dropzone className={picture.length > 0 ? css.of : css.on} />
         </div>
         <span className={css.instruction}>
-          Please select the report location on the map.
+          Please mark on the map the exact location with a click on the place 📍
         </span>
         <Mapbox></Mapbox>
         <div className={css.locationName}>
@@ -68,11 +72,6 @@ export function ReportForm(props: ReportPet) {
           />
         </div>
 
-        {/* <textarea
-          name="info"
-          className={css.textarea}
-          placeholder="Write a place"
-        ></textarea> */}
         <button className={css.report}>{props.children}</button>
         <Link to="/home">
           <button className={css.cancel}>Cancel</button>

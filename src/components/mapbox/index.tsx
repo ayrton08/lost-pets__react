@@ -10,9 +10,9 @@ mapboxgl.accessToken =
 export function Mapbox() {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(-70.9);
-  const [lat, setLat] = useState(42.35);
-  const [zoom, setZoom] = useState(9);
+  const [lng, setLng] = useState(-63.988684);
+  const [lat, setLat] = useState(-31.497542);
+  const [zoom, setZoom] = useState(6);
 
   const [locationUpdate, setlocationUpdate] = useState(false);
   const [markerLat, setMarkerLat] = useState();
@@ -69,10 +69,10 @@ export function Mapbox() {
 
   return (
     <div>
+      <div ref={mapContainer} className={css.container} />
       <div className={css.sidebar}>
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
       </div>
-      <div ref={mapContainer} className={css.container} />
       <button onClick={myLocation} className={css.button}>
         Ir a mi ubicacion 🗺️
       </button>

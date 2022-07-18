@@ -4,10 +4,12 @@ import { useDropzone } from "react-dropzone";
 import { dropzone } from "../../lib/dropzone-atom";
 import { useRecoilState } from "recoil";
 
-export function Dropzone() {
-  //   const [images, setImages] = useState([]);
+type Dropzone = {
+  className: string;
+};
+
+export function Dropzone(props: Dropzone) {
   const [images, setImages] = useRecoilState(dropzone);
-  const container = useRef(null);
 
   const onDrop = useCallback((acceptedFiles, rejectFiles) => {
     acceptedFiles.forEach((file) => {
@@ -23,13 +25,9 @@ export function Dropzone() {
     onDrop,
   });
 
-  // if (images.length > 0) {
-  //   container.current.style.display = "none";
-  // }
-
   return (
     <div>
-      <div className={css.container} {...getRootProps()} ref={container}>
+      <div className={props.className} {...getRootProps()}>
         <input {...getInputProps()} />
         {isDragActive ? "Drag Active" : "You can drop your picture here"}
       </div>
