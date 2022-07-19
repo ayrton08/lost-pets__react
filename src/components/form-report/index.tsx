@@ -54,28 +54,35 @@ export function ReportForm(props: ReportPet) {
   return (
     <div className={css.container}>
       <form className={css.root} onSubmit={onSubmitHandler} ref={form}>
-        <TextField type="text" name="name" placeholder="Name" />
-        <TextField type="text" name="race" placeholder="Race" />
-        <div className={css.dropzone}>
-          <Dropzone className={picture.length > 0 ? css.of : css.on} />
-        </div>
-        <span className={css.instruction}>
-          Please mark on the map the exact location with a click on the place 📍
-        </span>
-        <Mapbox></Mapbox>
-        <div className={css.locationName}>
-          <span>Location name: </span>
-          <TextField
-            type="text"
-            name="location"
-            placeholder="Write an address, Eje: City, Neighborhood, Street..."
-          />
+        <div className={css.firstSection}>
+          <TextField type="text" name="name" placeholder="Name" />
+          <TextField type="text" name="race" placeholder="Race" />
+          <div className={css.dropzone}>
+            <Dropzone className={picture.length > 0 ? css.of : css.on} />
+          </div>
         </div>
 
-        <button className={css.report}>{props.children}</button>
-        <Link to="/home">
-          <button className={css.cancel}>Cancel</button>
-        </Link>
+        <div className={css.map}>
+          <span className={css.instruction}>
+            Please mark on the map the exact location with a click on the place
+            📍
+          </span>
+          <Mapbox></Mapbox>
+          <div className={css.locationName}>
+            <span>Location name: </span>
+            <TextField
+              type="text"
+              name="location"
+              placeholder="Write an address, Eje: City, Neighborhood, Street..."
+            />
+          </div>
+        </div>
+        <div className={css.buttons}>
+          <button className={css.report}>{props.children}</button>
+          <Link to="/home">
+            <button className={css.cancel}>Cancel</button>
+          </Link>
+        </div>
       </form>
     </div>
   );

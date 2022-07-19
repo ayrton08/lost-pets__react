@@ -70,12 +70,14 @@ export function Mapbox() {
   return (
     <div>
       <div ref={mapContainer} className={css.container} />
-      <div className={css.sidebar}>
-        Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+      <div className={css.location}>
+        <div className={css.sidebar}>
+          Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+        </div>
+        <button onClick={myLocation} className={css.button}>
+          Go to my location 🗺️
+        </button>
       </div>
-      <button onClick={myLocation} className={css.button}>
-        Ir a mi ubicacion 🗺️
-      </button>
     </div>
   );
 }

@@ -29,7 +29,11 @@ export function Dropzone(props: Dropzone) {
     <div>
       <div className={props.className} {...getRootProps()}>
         <input {...getInputProps()} />
-        {isDragActive ? "Drag Active" : "You can drop your picture here"}
+        {isDragActive ? (
+          "Drag Active"
+        ) : (
+          <div className={css.content}>"You can drop your picture here"</div>
+        )}
       </div>
       {images.length > 0 && (
         <div>

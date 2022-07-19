@@ -8,8 +8,32 @@
   border-radius: 5px; */
   width: 100%;
 
-  gap: 20px;
+  gap: 30px;
   padding: 20px 40px 40px 40px;
+}
+@media (min-width: 600px) {
+  .root {
+    gap: 50px;
+  }
+}
+
+.firstSection {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+  background-color: black;
+  padding: 20px;
+}
+@media (min-width: 600px) {
+  .firstSection {
+    max-width: 730px;
+    border-radius: 7px;
+    padding: 30px;
+  }
 }
 
 .container {
@@ -37,6 +61,7 @@
 }
 
 .instruction {
+  min-width: 100%;
   max-width: 350px;
   padding: 5px;
   border-radius: 3px;
@@ -48,7 +73,7 @@
 @media (min-width: 600px) {
   .instruction {
     font-size: 20px;
-    min-width: 490px;
+    min-width: 100%;
   }
 }
 
@@ -124,6 +149,8 @@
 }
 
 .on {
+  display: flex;
+  flex-direction: column;
   border: 2px dotted gray;
   border-radius: 5px;
   background-color: azure;
@@ -133,6 +160,8 @@
   color: slategray;
   font-size: 15px;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 600px) {
@@ -151,4 +180,20 @@
 
 .off {
   display: none;
+}
+
+.map {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: black;
+  padding: 20px;
+}
+
+@media (min-width: 600px) {
+  .map {
+    max-width: 730px;
+    padding: 30px;
+    border-radius: 7px;
+  }
 }
