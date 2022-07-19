@@ -197,3 +197,10 @@
     border-radius: 7px;
   }
 }
+
+@media (min-width: 600px) {
+  .buttons {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
