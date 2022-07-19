@@ -23,7 +23,7 @@ export function Login() {
     setNewState(res);
 
     if (res === null) {
-      setError("Error en el login");
+      setError("Something went wrong, please try again");
     } else {
       const newData = await useDataUser();
       setLoginState(newData);

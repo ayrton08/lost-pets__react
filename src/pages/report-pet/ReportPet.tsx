@@ -24,7 +24,7 @@ export function ReportPet() {
       !dataForm.lat ||
       !dataForm.lng
     ) {
-      return alert("Faltan datos en el report");
+      return alert("Missing data in the form");
     }
 
     const res = await doReport(dataForm, token);

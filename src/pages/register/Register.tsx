@@ -29,10 +29,7 @@ export function Register() {
       const res = await useRegister(dataForm);
       res.registrado
         ? navigate("/login", { replace: true })
-        : console.error(
-            "Algo salio mal en el registro intenta nuevamente",
-            res
-          );
+        : alert("Something went wrong in the registry, please try again");
     }
   }
 
