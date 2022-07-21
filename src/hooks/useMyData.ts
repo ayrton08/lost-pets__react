@@ -7,6 +7,7 @@ export async function updateMyData(fullname?, password?) {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
         Authorization: `bearer ${token}`,
       },
       body: JSON.stringify({ fullname, password }),

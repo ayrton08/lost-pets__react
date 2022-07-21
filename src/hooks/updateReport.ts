@@ -13,6 +13,7 @@ export async function updateReport(dataForm: Object, token, idPet) {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
         Authorization: `bearer ${token}`,
       },
       body: JSON.stringify({ dataForm }),

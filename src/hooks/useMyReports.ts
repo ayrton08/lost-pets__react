@@ -18,6 +18,7 @@ export function useMyReports(): Array<any> {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
           Authorization: `bearer ${token}`,
         },
       }

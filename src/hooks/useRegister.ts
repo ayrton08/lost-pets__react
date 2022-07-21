@@ -5,6 +5,7 @@ async function register(fullname: String, email: String, password: String) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({ fullname, email, password }),
     }

@@ -13,6 +13,7 @@ export async function useDataUser() {
       method: "GET",
       headers: {
         Authorization: `bearer ${token}`,
+        "Access-Control-Allow-Origin": "*",
       },
     }
   );

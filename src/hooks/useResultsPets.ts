@@ -28,6 +28,7 @@ export function useResultsPets(): Response {
           method: "get",
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
           },
         }
       );

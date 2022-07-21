@@ -5,6 +5,7 @@ export async function findById(id) {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
     }
   );
