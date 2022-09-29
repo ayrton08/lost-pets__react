@@ -5,10 +5,10 @@ type Hide = {
   hide: () => void;
 };
 
-export function HideText(props: Hide) {
+export function HideText({ hide }: Hide) {
   return (
-    <label className={css.switch} onClick={props.hide}>
-      <input type="checkbox" />
+    <label className={css.switch}>
+      <input type="checkbox" onClick={hide} />
       <span className={css.slider}></span>
     </label>
   );
