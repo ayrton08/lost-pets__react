@@ -29,9 +29,9 @@ input:hover {
 }
 
 .input::placeholder {
-  color: #f1c40f;
-  font-style: italic;
+  color: white;
   opacity: 0.5;
+  font-size: medium;
 }
 
 .input:focus::placeholder {

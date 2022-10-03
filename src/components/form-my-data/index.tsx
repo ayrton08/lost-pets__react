@@ -51,7 +51,7 @@ export function FormMyData(props: FormMyData) {
           name="passwordRepeat"
           placeholder="Repeat new password"
         ></TextField>
-        <ButtonForm>Save</ButtonForm>
+        <ButtonForm type="submit">Save</ButtonForm>
       </form>
     </div>
   );

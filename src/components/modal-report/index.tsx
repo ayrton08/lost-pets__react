@@ -57,7 +57,7 @@ export function ModalReport(props: ModalReport) {
             className={css.textarea}
             placeholder="Write a place"
           ></textarea>
-          <ButtonForm>Send</ButtonForm>
+          <ButtonForm type="submit">Send</ButtonForm>
         </form>
       </div>
     </div>

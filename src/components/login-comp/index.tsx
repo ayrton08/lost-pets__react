@@ -10,7 +10,6 @@ type LoginForm = {
 };
 
 export function LoginForm(props: LoginForm) {
-  
   function onSubmitHandler(e) {
     e.preventDefault();
     const email = e.target.email.value;
@@ -26,7 +25,7 @@ export function LoginForm(props: LoginForm) {
       <TextField type="email" name="email" placeholder="Email" />
       <TextField type="password" name="password" placeholder="Contraseña" />
       <div className={css.error}>{props.error}</div>
-      <ButtonForm>Login</ButtonForm>
+      <ButtonForm type="submit">Login</ButtonForm>
     </form>
   );
 }

@@ -2,35 +2,27 @@ import React, { useState, useEffect, useContext, Suspense } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import css from "./register.css";
 import { RegisterForm } from "../../components/register-comp";
-import { useRegister } from "../../hooks/useRegister";
+import { register } from "../../helpers/handlerRegister";
 
 type RegisterForm = {
   fullname: string;
   email: string;
   password: string;
-  passwordRepeat: string;
+  password2: string;
 };
 
 export function Register() {
   const navigate = useNavigate();
-  async function handlerRegister(dataForm: RegisterForm) {
-    if (!dataForm.fullname) {
-      return alert("The fullname is missing");
-    }
-    if (!dataForm.email) {
-      return alert("The email is missing");
-    }
-    if (!dataForm.password || !dataForm.passwordRepeat) {
-      return alert("The password is missing");
-    }
-    if (dataForm.password !== dataForm.passwordRepeat) {
-      return alert("Passwords do not match");
-    } else {
-      const res = await useRegister(dataForm);
-      res.registrado
-        ? navigate("/login", { replace: true })
-        : alert("Something went wrong in the registry, please try again");
-    }
+
+  const [isRegistering, setIsRegistering] = useState(false);
+
+  async function handlerRegister({ email, fullname, password }: RegisterForm) {
+    setIsRegistering(true);
+    const data = await register({ fullname, password, email });
+    setIsRegistering(false);
+    data.registrado
+      ? navigate("/login", { replace: true })
+      : alert("Something went wrong in the registry, please try again");
   }
 
   return (
@@ -39,7 +31,8 @@ export function Register() {
       <RegisterForm
         onRegister={(val) => handlerRegister(val)}
         error={undefined}
-      ></RegisterForm>
+        isRegistering={isRegistering}
+      />
     </div>
   );
 }
