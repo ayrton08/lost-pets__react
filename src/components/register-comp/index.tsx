@@ -45,8 +45,7 @@ export function RegisterForm({
     typeInput ? setTypeInput(false) : setTypeInput(true);
   };
 
-  function onSubmitHandler(values, callback?: any) {
-    console.log(values);
+  function onSubmitHandler(values) {
     onRegister({
       ...values,
     });

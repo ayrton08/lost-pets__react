@@ -16,8 +16,12 @@ export function Login() {
   const [value, setValue] = useRecoilState(state);
   const [error, setError] = useState("");
 
+  const [isLoging, setIsLoging] = useState(false);
+
   async function loginIn(dataForm) {
+    setIsLoging(true);
     const res = await useLogin(dataForm.email, dataForm.password);
+    setIsLoging(false);
 
     localStorage.setItem("token", JSON.stringify(res));
     setNewState(res);
@@ -38,7 +42,11 @@ export function Login() {
       {newState ? (
         <Navigate to="/home" replace={true} />
       ) : (
-        <LoginForm onLogin={(val) => loginIn(val)} error={error}></LoginForm>
+        <LoginForm
+          onLogin={(val) => loginIn(val)}
+          error={error}
+          isLoging={isLoging}
+        />
       )}
     </div>
   );
