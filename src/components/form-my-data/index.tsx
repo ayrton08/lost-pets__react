@@ -5,6 +5,11 @@ import { useRecoilValue } from "recoil";
 import { TextField } from "../../ui/text-field";
 import { ButtonForm } from "../../ui/button-form/ButtonForm";
 
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
+import { MyTextInput } from "../../ui/text-field/MyTextInput";
+import { CircularProgress } from "@mui/material";
+
 type FormMyData = {
   myData: (params: {
     fullname: string;
@@ -13,46 +18,69 @@ type FormMyData = {
   }) => any;
 };
 
+const initialValues = {
+  fullname: "",
+  password1: "",
+  password2: "",
+};
+
 export function FormMyData(props: FormMyData) {
   const stateLogin = useRecoilValue(login);
 
-  function onSubmitHandler(e) {
-    e.preventDefault();
-    const fullname = e.target.fullname.value;
-    const password = e.target.password.value;
-    const passwordRepeat = e.target.passwordRepeat.value;
+  function onSubmitHandler(values) {
     props.myData({
-      fullname,
-      password,
-      passwordRepeat,
+      ...values,
     });
   }
   return (
-    <div className={css.page}>
+    <>
       <h2 className={css.title}>Your Information</h2>
-      <form className={css.root} onSubmit={onSubmitHandler}>
-        <TextField
-          type="text"
-          name="fullname"
-          placeholder={stateLogin["fullname"]}
-        ></TextField>
-        <TextField
-          type="text"
-          name="email"
-          placeholder={stateLogin["email"]}
-        ></TextField>
-        <TextField
-          type="password"
-          name="password"
-          placeholder="New password"
-        ></TextField>
-        <TextField
-          type="password"
-          name="passwordRepeat"
-          placeholder="Repeat new password"
-        ></TextField>
-        <ButtonForm type="submit">Save</ButtonForm>
-      </form>
-    </div>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={(values) => {
+          onSubmitHandler(values);
+        }}
+        validationSchema={Yup.object({
+          fullname: Yup.string().min(2, "Must contain at least 2 characters"),
+          password1: Yup.string().min(6, "Must contain at least 6 characters"),
+          password2: Yup.string().oneOf(
+            [Yup.ref("password1")],
+            "Passwords are not the same"
+          ),
+        })}
+      >
+        {(formik) => (
+          <Form className={css.root}>
+            <MyTextInput
+              name="fullname"
+              type="text"
+              placeholder={stateLogin["fullname"]}
+            />
+            <MyTextInput
+              name="email"
+              type="text"
+              placeholder={stateLogin["email"]}
+            />
+            <MyTextInput
+              name="password1"
+              type="password"
+              placeholder="New password"
+            />
+            <MyTextInput
+              name="password2"
+              type="password"
+              placeholder="Repeat new password"
+            />
+            <ButtonForm type="submit">Save</ButtonForm>
+          </Form>
+        )}
+      </Formik>
+      {!stateLogin["fullname"] && (
+        <div className="loader">
+          <CircularProgress color="success" size={60} />
+          <span>Loading...</span>
+        </div>
+      )}
+    </>
   );
 }

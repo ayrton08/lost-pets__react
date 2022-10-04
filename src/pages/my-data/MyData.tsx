@@ -15,10 +15,10 @@ export function MyData() {
   const [dataUser, setDataUser] = useRecoilState(login);
 
   async function newData(dataForm) {
-    if (dataForm.password !== dataForm.passwordRepeat) {
-      return alert("Contraseñas no coinciden");
-    }
-    await updateMyData(dataForm.fullname, dataForm.password);
+    // if (dataForm.password1 !== dataForm.password2) {
+    //   return alert("Contraseñas no coinciden");
+    // }
+    await updateMyData(dataForm.fullname, dataForm.password1);
     const newData = await useDataUser();
     setDataUser(newData);
     result("Updated data");
@@ -32,7 +32,7 @@ export function MyData() {
       {!token ? (
         <Navigate to="/login" replace={true} />
       ) : (
-        <FormMyData myData={(val) => newData(val)} />
+        <FormMyData myData={newData} />
       )}
     </div>
   );

@@ -1,6 +1,5 @@
 import React, { FormEvent } from "react";
 import css from "./login.css";
-// import { TextField } from "../../ui/text-field/index";
 import { ButtonForm } from "../../ui/button-form/ButtonForm";
 
 import { Formik, Form } from "formik";
