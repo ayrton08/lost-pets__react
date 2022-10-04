@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import { MyTextInput } from "../../ui/text-field/MyTextInput";
 
 import CircularProgress from "@mui/material/CircularProgress";
+import { LoaderMaterial } from "../../ui/loader/LoaderMaterial";
 
 type RegisterForm = {
   onRegister: (params: {
@@ -93,12 +94,7 @@ export function RegisterForm({
           </Form>
         )}
       </Formik>
-      {isRegistering && (
-        <div className="loader">
-          <CircularProgress color="success" size={60} />
-          <span>Loading...</span>
-        </div>
-      )}
+      {isRegistering && <LoaderMaterial />}
     </>
   );
 }

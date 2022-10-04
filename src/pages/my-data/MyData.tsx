@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FormMyData } from "../../components/form-my-data";
 import { updateMyData } from "../../hooks/useMyData";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -10,17 +10,17 @@ import css from "./my-data.css";
 
 export function MyData() {
   const navigate = useNavigate();
+  const [isUpdating, setIsUpdating] = useState(false);
 
   const stateLogin = useRecoilValue(state);
   const [dataUser, setDataUser] = useRecoilState(login);
 
   async function newData(dataForm) {
-    // if (dataForm.password1 !== dataForm.password2) {
-    //   return alert("Contraseñas no coinciden");
-    // }
+    setIsUpdating(true);
     await updateMyData(dataForm.fullname, dataForm.password1);
     const newData = await useDataUser();
     setDataUser(newData);
+    setIsUpdating(false);
     result("Updated data");
     navigate("/home", { replace: true });
   }
@@ -32,7 +32,7 @@ export function MyData() {
       {!token ? (
         <Navigate to="/login" replace={true} />
       ) : (
-        <FormMyData myData={newData} />
+        <FormMyData myData={newData} isUpdating={isUpdating} />
       )}
     </div>
   );

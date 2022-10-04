@@ -6,6 +6,7 @@ import { Formik, Form } from "formik";
 import { MyTextInput } from "../../ui/text-field/MyTextInput";
 import * as Yup from "yup";
 import { CircularProgress } from "@mui/material";
+import { LoaderMaterial } from "../../ui/loader/LoaderMaterial";
 
 type LoginForm = {
   onLogin: (params: { email: string; password: string }) => any;
@@ -53,12 +54,7 @@ export function LoginForm({ error, onLogin, isLoging }: LoginForm) {
           </Form>
         )}
       </Formik>
-      {isLoging && (
-        <div className="loader">
-          <CircularProgress color="success" size={60} />
-          <span>Loading...</span>
-        </div>
-      )}
+      {isLoging && <LoaderMaterial />}
     </>
   );
 }

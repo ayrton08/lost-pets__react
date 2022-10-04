@@ -9,6 +9,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { MyTextInput } from "../../ui/text-field/MyTextInput";
 import { CircularProgress } from "@mui/material";
+import { LoaderMaterial } from "../../ui/loader/LoaderMaterial";
 
 type FormMyData = {
   myData: (params: {
@@ -16,6 +17,7 @@ type FormMyData = {
     password?: string;
     passwordRepeat?: string;
   }) => any;
+  isUpdating?: boolean;
 };
 
 const initialValues = {
@@ -24,11 +26,11 @@ const initialValues = {
   password2: "",
 };
 
-export function FormMyData(props: FormMyData) {
+export function FormMyData({ myData, isUpdating }: FormMyData) {
   const stateLogin = useRecoilValue(login);
 
   function onSubmitHandler(values) {
-    props.myData({
+    myData({
       ...values,
     });
   }
@@ -75,12 +77,8 @@ export function FormMyData(props: FormMyData) {
           </Form>
         )}
       </Formik>
-      {!stateLogin["fullname"] && (
-        <div className="loader">
-          <CircularProgress color="success" size={60} />
-          <span>Loading...</span>
-        </div>
-      )}
+      {!stateLogin["fullname"] && <LoaderMaterial />}
+      {isUpdating && <LoaderMaterial message="Updating" />}
     </>
   );
 }
