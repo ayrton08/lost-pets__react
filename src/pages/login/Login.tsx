@@ -5,7 +5,7 @@ import { LoginForm } from "../../components/login-comp";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { state } from "../../lib/dataUser";
 import { useLogin, login } from "../../hooks/useLogin";
-import { useDataUser } from "../../lib/dataUser";
+import { dataUser } from "../../lib/dataUser";
 
 // arreglar el tipado de este componente
 export function Login() {
@@ -29,7 +29,7 @@ export function Login() {
     if (res === null) {
       setError("Something went wrong, please try again");
     } else {
-      const newData = await useDataUser();
+      const newData = await dataUser();
       setLoginState(newData);
       setValue(res);
       return navigate("/home", { replace: true });

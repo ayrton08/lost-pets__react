@@ -1,4 +1,4 @@
-export async function doReport(dataForm: Object, token: String) {
+export async function doReport(dataForm: object, token: string) {
   const res = await fetch(
     `https://dwf-m7-postgre.herokuapp.com/api/v1/pets/report-pet`,
     {

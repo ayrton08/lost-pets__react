@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FormMyData } from "../../components/form-my-data";
 import { updateMyData } from "../../hooks/useMyData";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { state, useDataUser } from "../../lib/dataUser";
+import { state, dataUser } from "../../lib/dataUser";
 import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../../hooks/useLogin";
 import { result } from "../../lib/sendFormModal";
@@ -13,13 +13,13 @@ export function MyData() {
   const [isUpdating, setIsUpdating] = useState(false);
 
   const stateLogin = useRecoilValue(state);
-  const [dataUser, setDataUser] = useRecoilState(login);
+  const [dataUserState, setDataUserState] = useRecoilState(login);
 
   async function newData(dataForm) {
     setIsUpdating(true);
     await updateMyData(dataForm.fullname, dataForm.password1);
-    const newData = await useDataUser();
-    setDataUser(newData);
+    const newData = await dataUser();
+    setDataUserState(newData);
     setIsUpdating(false);
     result("Updated data");
     navigate("/home", { replace: true });

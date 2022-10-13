@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import css from "./report-pet.css";
-import { ReportForm } from "../../components/form-report";
+import { ReportForm } from "../../components/form-report/ReportForm";
 import { doReport } from "../../lib/doReport";
 import { useParams } from "react-router-dom";
 import { updateReport } from "../../hooks/updateReport";

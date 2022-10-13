@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import css from "./header.css";
-import { MenuModal } from "../menu-modal";
+import { MenuModal } from "../menu-modal/MenuModal";
 import { useModal } from "../../hooks/useModal";
 import { state } from "../../lib/dataUser";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -14,8 +14,7 @@ export function Header() {
   const [stateUser, setStateUser] = useRecoilState(state);
   const [dataUser, setDataUser] = useRecoilState(login);
 
-  function closeSession(e) {
-    e.preventDefault();
+  function closeSession() {
     setStateUser(false);
     setDataUser(null);
     localStorage.removeItem("token");

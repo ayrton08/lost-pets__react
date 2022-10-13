@@ -1,11 +1,10 @@
-import React, { FormEvent } from "react";
+import React from "react";
 import css from "./login.css";
 import { ButtonForm } from "../../ui/button-form/ButtonForm";
 
 import { Formik, Form } from "formik";
 import { MyTextInput } from "../../ui/text-field/MyTextInput";
 import * as Yup from "yup";
-import { CircularProgress } from "@mui/material";
 import { LoaderMaterial } from "../../ui/loader/LoaderMaterial";
 
 type LoginForm = {

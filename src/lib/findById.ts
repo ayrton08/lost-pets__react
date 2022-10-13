@@ -1,4 +1,6 @@
-export async function findById(id) {
+export async function findById(id: string) {
+  if (isNaN(+id)) throw new Error("Parameters is not a valid number");
+
   const res = await fetch(
     `https://dwf-m7-postgre.herokuapp.com/api/v1/pets/by-id/${id}`,
     {
@@ -9,6 +11,6 @@ export async function findById(id) {
       },
     }
   );
-  const pet = await res.json();
-  return pet;
+  const result = await res.json();
+  return result;
 }

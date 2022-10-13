@@ -11,7 +11,7 @@ import { locationReport } from "../../lib/location";
 import { useRecoilState } from "recoil";
 
 type ReportPet = {
-  report: (params: {
+  report?: (params: {
     name?: string;
     raza?: string;
     pictureURL?: string;

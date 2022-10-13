@@ -20,12 +20,12 @@ export function ResultsPets(props: ResultsPets) {
   const card = useRef(null);
   const idReport = useRecoilValue(idPet);
 
-  async function deletePet(id) {
+  async function deletePet() {
     card.current.className = css.off;
     const token = JSON.parse(localStorage.getItem("token"));
-    const updateFetch = await updateReport({ state: false }, token, idReport);
+    await updateReport({ state: false }, token, idReport);
   }
-  
+
   return (
     <div
       className={window.location.pathname === "/home" ? css.card : css.mycard}
