@@ -26,7 +26,6 @@ export function Home() {
   const [picture, setPicture] = useRecoilState(dropzone);
   const dogsMissing = results.length > 0 && results.filter((dog) => dog.state);
 
-
   const search = async () => {
     if (dataPet.id) {
       const res = await findById(dataPet.id);
@@ -83,7 +82,7 @@ export function Home() {
         {isLoading ? (
           <div className={css.root}>{<Loader />}</div>
         ) : dogsMissing ? (
-          <div className={css.card}>
+          <div className={css.card} data-test="home-result">
             {dogsMissing.map((r) => {
               return (
                 <ResultsPets
