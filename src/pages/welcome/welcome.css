@@ -8,7 +8,7 @@
   padding: 30px;
   background-color: #212121;
   color: antiquewhite;
-  min-height: 100vh;
+  height: calc(100vh - 90px);
 }
 .title {
   font-size: 45px;
