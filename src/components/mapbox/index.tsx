@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import css from "./mapbox.css";
@@ -41,7 +43,7 @@ export function Mapbox() {
 
   useEffect(() => {
     map.current.on("click", (e: any) => {
-      var coordinates = e.lngLat;
+      const coordinates = e.lngLat;
       setNewLocation(coordinates);
 
       setMarkerLat(coordinates.lat);

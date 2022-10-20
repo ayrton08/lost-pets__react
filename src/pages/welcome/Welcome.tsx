@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import css from "./welcome.css";
-import { dataUser } from "../../lib/dataUser";
-import { state } from "../../lib/atoms";
-import { useRecoilState, useRecoilValue } from "recoil";
 import { ButtonGeneric } from "../../ui/buttons-generic/button-generic";
 
 export function Welcome() {
-  const newState = useRecoilValue(state);
   return (
     <div className={css.root}>
       <h3 className={css.title} data-test="welcome-title">

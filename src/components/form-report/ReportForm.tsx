@@ -1,7 +1,7 @@
-import React, { Children, useRef, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import css from "./report-form.css";
-import { ButtonForm } from "../../ui/button-form/ButtonForm";
 import { TextField } from "../../ui/text-field";
 import { Dropzone } from "../drop-zone";
 import { dropzone } from "../../lib/atoms";
@@ -20,14 +20,14 @@ type ReportPet = {
     location: string;
     state: any;
   }) => any;
-  error?: String;
+  error?: string;
   children: string;
 };
 
 export function ReportForm(props: ReportPet) {
   const locationCoor = useRecoilValue(locationReport);
   const form = useRef(null);
-  const [images, setImages] = useRecoilState(dropzone);
+  const [, setImages] = useRecoilState(dropzone);
 
   const picture = useRecoilValue(dropzone);
 

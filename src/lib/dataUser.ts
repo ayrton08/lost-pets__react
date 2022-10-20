@@ -1,5 +1,3 @@
-import { atom } from "recoil";
-
 export async function dataUser() {
   const token = JSON.parse(localStorage.getItem("token"));
   const res = await fetch(

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext, Suspense } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import css from "./register.css";
 import { RegisterForm } from "../../components/register-comp";
 import { register } from "../../lib/handlerRegister";

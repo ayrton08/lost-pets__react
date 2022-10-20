@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import css from "./login.css";
 import { ButtonForm } from "../../ui/button-form/ButtonForm";
@@ -9,7 +10,7 @@ import { LoaderMaterial } from "../../ui/loader/LoaderMaterial";
 
 type LoginForm = {
   onLogin: (params: { email: string; password: string }) => any;
-  error: String;
+  error: string;
   isLoging?: boolean;
 };
 
@@ -39,7 +40,7 @@ export function LoginForm({ error, onLogin, isLoging }: LoginForm) {
           password: Yup.string().required("The password is required"),
         })}
       >
-        {(value) => (
+        {() => (
           <Form className={css.root}>
             <MyTextInput type="email" name="email" placeholder="Email" />
             <MyTextInput

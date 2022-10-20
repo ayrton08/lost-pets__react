@@ -12,8 +12,8 @@ import { idPet } from "../../lib/atoms";
 
 export function MyReports() {
   const navigate = useNavigate();
-  const [dataPet, setDataPet] = useState({});
-  const [id, setIdPet] = useRecoilState(idPet);
+  const [dataPet] = useState({});
+  const [, setIdPet] = useRecoilState(idPet);
   const { isOpen, closeModal } = useModal(false);
 
   const [myReports, isLoading] = useMyReports() || [];

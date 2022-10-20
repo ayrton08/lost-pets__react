@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import React, { useState } from "react";
 import css from "./report-pet.css";
 import { ReportForm } from "../../components/form-report/ReportForm";
@@ -27,14 +28,14 @@ export function ReportPet() {
       return alert("Missing data in the form");
     }
 
-    const res = await doReport(dataForm, token);
+    await doReport(dataForm, token);
     setIsSending(false);
     result("Successful Report");
     return navigate("/my-reports", { replace: true });
   }
 
   async function updatePet(dataForm) {
-    const res = await updateReport(dataForm, token, params.id);
+    await updateReport(dataForm, token, params.id);
     result("Successful Update");
     return navigate("/my-reports", { replace: true });
   }

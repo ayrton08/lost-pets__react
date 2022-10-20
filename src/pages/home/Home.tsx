@@ -8,12 +8,10 @@ import { useModal } from "../../hooks/useModal";
 import { sendInfoPet } from "../../lib/sendInfoPet";
 import { findById } from "../../lib/findById";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 import { dropzone } from "../../lib/atoms";
 import { useRecoilState } from "recoil";
 
 export function Home() {
-  const navigate = useNavigate();
   const { results, isLoading } = useResultsPets();
   const [dataPet, setDataPet] = useState({
     id: null,
@@ -23,7 +21,7 @@ export function Home() {
   });
   const { isOpen, openModal, closeModal } = useModal(false);
   const [dataComplete, setDataComplete] = useState({});
-  const [picture, setPicture] = useRecoilState(dropzone);
+  const [, setPicture] = useRecoilState(dropzone);
   const dogsMissing = results.length > 0 && results.filter((dog) => dog.state);
 
   const search = async () => {

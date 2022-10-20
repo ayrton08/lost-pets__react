@@ -1,4 +1,4 @@
-export async function updateMyData(fullname?, password?) {
+export async function updateMyData(fullname: string, password: string) {
   const token = JSON.parse(localStorage.getItem("token"));
 
   const sendFormUpdate = await fetch(

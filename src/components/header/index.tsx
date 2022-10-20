@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import css from "./header.css";
 import { MenuModal } from "../menu-modal/MenuModal";
 import { useModal } from "../../hooks/useModal";
 import { state } from "../../lib/atoms";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { ButtonClose } from "../../ui/button-close-session/button-close-session";
 import { login } from "../../hooks/useLogin";
 

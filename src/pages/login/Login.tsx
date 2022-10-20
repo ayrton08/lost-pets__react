@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useContext, Suspense } from "react";
-import { Link, useNavigate, Navigate } from "react-router-dom";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useState } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
 import css from "./login.css";
 import { LoginForm } from "../../components/login-comp";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { state } from "../../lib/atoms";
 import { useLogin, login } from "../../hooks/useLogin";
 import { dataUser } from "../../lib/dataUser";

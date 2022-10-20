@@ -1,5 +1,4 @@
-import { atom, selector, useRecoilState } from "recoil";
-import { useEffect } from "react";
+import { atom } from "recoil";
 
 export const login = atom({
   key: "login",

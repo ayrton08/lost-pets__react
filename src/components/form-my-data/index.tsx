@@ -1,14 +1,13 @@
-import React, { useRef } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React from "react";
 import css from "./form-my-data.css";
 import { login } from "../../hooks/useLogin";
 import { useRecoilValue } from "recoil";
-import { TextField } from "../../ui/text-field";
 import { ButtonForm } from "../../ui/button-form/ButtonForm";
 
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { MyTextInput } from "../../ui/text-field/MyTextInput";
-import { CircularProgress } from "@mui/material";
 import { LoaderMaterial } from "../../ui/loader/LoaderMaterial";
 
 type FormMyData = {
@@ -16,7 +15,7 @@ type FormMyData = {
     fullname: string;
     password?: string;
     passwordRepeat?: string;
-  }) => any;
+  }) => void;
   isUpdating?: boolean;
 };
 

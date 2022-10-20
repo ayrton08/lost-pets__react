@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { FormMyData } from "../../components/form-my-data";
 import { updateMyData } from "../../lib/updateMyData";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { dataUser } from "../../lib/dataUser";
-import { state } from "../../lib/atoms";
 import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../../hooks/useLogin";
 import { result } from "../../lib/sendFormModal";
@@ -13,8 +12,7 @@ export function MyData() {
   const navigate = useNavigate();
   const [isUpdating, setIsUpdating] = useState(false);
 
-  const stateLogin = useRecoilValue(state);
-  const [dataUserState, setDataUserState] = useRecoilState(login);
+  const [, setDataUserState] = useRecoilState(login);
 
   async function newData(dataForm) {
     setIsUpdating(true);

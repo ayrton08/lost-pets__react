@@ -1,4 +1,4 @@
-export async function sendInfoPet(params: {}) {
+export async function sendInfoPet(params: object) {
   const res = await fetch(
     `https://dwf-m7-postgre.herokuapp.com/api/v1/users/info-pet`,
     {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useRef } from "react";
 import css from "./modal-report.css";
 import { TextField } from "../../ui/text-field";

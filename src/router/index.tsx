@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Welcome } from "../pages/welcome/Welcome";

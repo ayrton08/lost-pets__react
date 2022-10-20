@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import css from "./register.css";
 import { ButtonForm } from "../../ui/button-form/ButtonForm";
@@ -7,7 +8,6 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { MyTextInput } from "../../ui/text-field/MyTextInput";
 
-import CircularProgress from "@mui/material/CircularProgress";
 import { LoaderMaterial } from "../../ui/loader/LoaderMaterial";
 
 type RegisterForm = {
@@ -35,11 +35,7 @@ const initialValues: InitialValues = {
   password2: "",
 };
 
-export function RegisterForm({
-  onRegister,
-  error,
-  isRegistering,
-}: RegisterForm) {
+export function RegisterForm({ onRegister, isRegistering }: RegisterForm) {
   const [typeInput, setTypeInput] = useState(false);
 
   const changeType = () => {
@@ -74,7 +70,7 @@ export function RegisterForm({
             .oneOf([Yup.ref("password")], "Passwords are not the same"),
         })}
       >
-        {(value) => (
+        {() => (
           <Form className={css.root}>
             <MyTextInput type="text" name="fullname" placeholder="Fullname" />
             <MyTextInput type="email" name="email" placeholder="Email" />

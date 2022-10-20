@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useState, useRef } from "react";
+/* eslint-disable react/no-unescaped-entities */
+import React, { useCallback } from "react";
 import css from "./dropzone.css";
 import { useDropzone } from "react-dropzone";
 import { dropzone } from "../../lib/atoms";
@@ -11,7 +12,7 @@ type Dropzone = {
 export function Dropzone(props: Dropzone) {
   const [images, setImages] = useRecoilState(dropzone);
 
-  const onDrop = useCallback((acceptedFiles, rejectFiles) => {
+  const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
       reader.onload = () => {
