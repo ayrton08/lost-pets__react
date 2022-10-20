@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import css from "./dropzone.css";
 import { useDropzone } from "react-dropzone";
-import { dropzone } from "../../lib/dropzone-atom";
+import { dropzone } from "../../lib/atoms";
 import { useRecoilState } from "recoil";
 
 type Dropzone = {

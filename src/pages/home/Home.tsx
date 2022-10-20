@@ -9,7 +9,7 @@ import { sendInfoPet } from "../../lib/sendInfoPet";
 import { findById } from "../../lib/findById";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { dropzone } from "../../lib/dropzone-atom";
+import { dropzone } from "../../lib/atoms";
 import { useRecoilState } from "recoil";
 
 export function Home() {

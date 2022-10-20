@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useRef } from "react";
 import css from "./results.css";
-import { updateReport } from "../../hooks/updateReport";
-import { idPet } from "../../hooks/updateReport";
+import { updateReport } from "../../lib/updateReport";
+import { idPet } from "../../lib/atoms";
 import { useRecoilValue } from "recoil";
 
 type ResultsPets = {

@@ -18,6 +18,7 @@ export function useResultsPets(): Response {
   const [results, setResultsReports] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
+  console.log(location);
 
   async function reportsClose(lat: string, lng: string) {
     if (lat && lng) {

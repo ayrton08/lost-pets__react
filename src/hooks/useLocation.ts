@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 
-export function useLocation() {
+interface Location {
+  lat: number;
+  lng: number;
+}
+
+export function useLocation(): Location | {} {
   const [location, setLocation] = useState({});
 
   useEffect(() => {

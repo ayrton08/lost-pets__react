@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext, Suspense } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import css from "./register.css";
 import { RegisterForm } from "../../components/register-comp";
-import { register } from "../../helpers/handlerRegister";
+import { register } from "../../lib/handlerRegister";
 
 type RegisterForm = {
   fullname: string;

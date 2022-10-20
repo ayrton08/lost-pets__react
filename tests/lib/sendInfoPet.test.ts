@@ -1,4 +1,4 @@
-import { findById } from "../../../src/lib/findById";
+import { findById } from "../../src/lib/findById";
 
 const testResponseData = {
   id: 1,

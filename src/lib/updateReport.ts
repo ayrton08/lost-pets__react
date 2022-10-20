@@ -1,10 +1,3 @@
-import { atom } from "recoil";
-
-export const idPet = atom({
-  key: "id",
-  default: {},
-});
-
 export async function updateReport(dataForm: Object, token, idPet) {
   const id = idPet;
   const res = await fetch(
@@ -19,5 +12,4 @@ export async function updateReport(dataForm: Object, token, idPet) {
       body: JSON.stringify({ dataForm }),
     }
   );
-  const data = await res.json();
 }

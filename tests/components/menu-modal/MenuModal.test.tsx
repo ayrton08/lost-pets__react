@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MenuModal } from "../../../../src/components/menu-modal/MenuModal";
+import { MenuModal } from "../../../src/components/menu-modal/MenuModal";
 
 describe("<MenuModal />", () => {
   test("shouldn't show up in the dom", () => {

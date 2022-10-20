@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import css from "./welcome.css";
 import { dataUser } from "../../lib/dataUser";
-import { state } from "../../lib/dataUser";
+import { state } from "../../lib/atoms";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { ButtonGeneric } from "../../ui/buttons-generic/button-generic";
 

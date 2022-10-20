@@ -3,7 +3,7 @@ import { Link, useNavigate, Navigate } from "react-router-dom";
 import css from "./login.css";
 import { LoginForm } from "../../components/login-comp";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { state } from "../../lib/dataUser";
+import { state } from "../../lib/atoms";
 import { useLogin, login } from "../../hooks/useLogin";
 import { dataUser } from "../../lib/dataUser";
 
@@ -21,6 +21,7 @@ export function Login() {
   async function loginIn(dataForm) {
     setIsLoging(true);
     const res = await useLogin(dataForm.email, dataForm.password);
+    console.log(res);
     setIsLoging(false);
 
     localStorage.setItem("token", JSON.stringify(res));

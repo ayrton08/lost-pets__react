@@ -3,7 +3,7 @@ import css from "./report-pet.css";
 import { ReportForm } from "../../components/form-report/ReportForm";
 import { doReport } from "../../lib/doReport";
 import { useParams } from "react-router-dom";
-import { updateReport } from "../../hooks/updateReport";
+import { updateReport } from "../../lib/updateReport";
 import { result } from "../../lib/sendFormModal";
 import { useNavigate } from "react-router-dom";
 

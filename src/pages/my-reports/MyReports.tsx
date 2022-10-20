@@ -1,25 +1,24 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import css from "./my-reports.css";
-import { useResultsPets } from "../../hooks/useResultsPets";
 import { ResultsPets } from "../../components/results-pets";
 import { Loader } from "../../ui/loader/loader";
 import { ModalReport } from "../../components/modal-report";
 import { useModal } from "../../hooks/useModal";
 import { useMyReports } from "../../hooks/useMyReports";
 import { useRecoilState } from "recoil";
-import { idPet } from "../../hooks/updateReport";
+import { idPet } from "../../lib/atoms";
 
 export function MyReports() {
   const navigate = useNavigate();
   const [dataPet, setDataPet] = useState({});
   const [id, setIdPet] = useRecoilState(idPet);
-  const { isOpen, openModal, closeModal } = useModal(false);
+  const { isOpen, closeModal } = useModal(false);
 
   const [myReports, isLoading] = useMyReports() || [];
   const haveReports =
     myReports.length > 0 && myReports.filter((dog) => dog.state);
-
 
   return (
     <div className={css.root}>

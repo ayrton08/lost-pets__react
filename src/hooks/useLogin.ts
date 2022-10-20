@@ -6,7 +6,7 @@ export const login = atom({
   default: false,
 });
 
-export async function useLogin(email: String, password: String) {
+export async function useLogin(email: string, password: string) {
   const loginFetch = await fetch(
     `https://dwf-m7-postgre.herokuapp.com/api/v1/auth/signin`,
     {

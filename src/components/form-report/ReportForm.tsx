@@ -4,10 +4,10 @@ import css from "./report-form.css";
 import { ButtonForm } from "../../ui/button-form/ButtonForm";
 import { TextField } from "../../ui/text-field";
 import { Dropzone } from "../drop-zone";
-import { dropzone } from "../../lib/dropzone-atom";
+import { dropzone } from "../../lib/atoms";
 import { useRecoilValue } from "recoil";
 import { Mapbox } from "../mapbox";
-import { locationReport } from "../../lib/location";
+import { locationReport } from "../../lib/atoms";
 import { useRecoilState } from "recoil";
 
 type ReportPet = {

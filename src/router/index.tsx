@@ -9,7 +9,7 @@ import { MyData } from "../pages/my-data/MyData";
 import { MyReports } from "../pages/my-reports/MyReports";
 import { ReportPet } from "../pages/report-pet/ReportPet";
 import { useRecoilState } from "recoil";
-import { state } from "../lib/dataUser";
+import { state } from "../lib/atoms";
 import { dataUser } from "../lib/dataUser";
 import { login } from "../hooks/useLogin";
 const token = JSON.parse(localStorage.getItem("token"));
