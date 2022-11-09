@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   testEnvironment: "jest-environment-jsdom",
   setupFiles: ["./jest.setup.js"],
@@ -6,6 +7,6 @@ module.exports = {
   // ModuleNameMapper sólo si ocupamos importar CSS en nuestros componentes para el testing
   moduleNameMapper: {
     "\\.(css|less)$": "<rootDir>/tests/cssMock.js",
-    setupFilesAfterEnv: ["./jest.setup.js", "./src/setupTests.ts"],
   },
+  setupFilesAfterEnv: ["./src/setupTests"],
 };
