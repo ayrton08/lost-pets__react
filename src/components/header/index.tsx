@@ -9,7 +9,6 @@ import { ButtonClose } from "../../ui/button-close-session/button-close-session"
 import { login } from "../../hooks/useLogin";
 import { ToggleButton } from "@mui/material";
 
-// import icon from "./icon.png";
 
 import ViewListIcon from "@mui/icons-material/ViewList";
 
