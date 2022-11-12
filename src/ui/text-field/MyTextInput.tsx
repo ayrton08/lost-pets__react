@@ -7,16 +7,22 @@ interface Props {
   name: string;
   type?: "text" | "email" | "password" | "checkbox" | "input";
   placeholder?: string;
+  disable?: boolean;
   [x: string]: any;
 }
 
-export const MyTextInput = ({ label, ...props }: Props) => {
+export const MyTextInput = ({ label, disable = false, ...props }: Props) => {
   const [field] = useField(props);
 
   return (
     <>
-      <label htmlFor={props.id || props.name}>{label}</label>
-      <input className={`${css.input} text-input`} {...field} {...props} />
+      <label htmlFor={props.name}>{label}</label>
+      <input
+        className={`${css.input} text-input`}
+        {...field}
+        {...props}
+        disabled={disable}
+      />
       <ErrorMessage name={props.name} component="span" className="error" />
     </>
   );

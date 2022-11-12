@@ -1,26 +1,15 @@
-.page {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  background-color: #212121;
-  color: antiquewhite;
-  min-height: 100vh;
-  padding-top: 30px;
-}
 .root {
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 23px;
   min-width: 290px;
   background-color: #212121;
   color: antiquewhite;
-  height: 100vh;
-  padding-bottom: 50px;
+  height: max-content;
+  /* height: calc(100vh - 60px); */
 }
 @media (min-width: 600px) {
   .root {
@@ -38,5 +27,14 @@
 @media (min-width: 600px) {
   .title {
     font-size: 45px;
+  }
+}
+
+.icon {
+  width: 130px;
+}
+@media (min-width: 600px) {
+  .icon {
+    width: 200px;
   }
 }

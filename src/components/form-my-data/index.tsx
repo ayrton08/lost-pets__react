@@ -10,6 +10,8 @@ import * as Yup from "yup";
 import { MyTextInput } from "../../ui/text-field/MyTextInput";
 import { LoaderMaterial } from "../../ui/loader/LoaderMaterial";
 
+import icon from "./icon.svg";
+
 type FormMyData = {
   myData: (params: {
     fullname: string;
@@ -36,6 +38,7 @@ export function FormMyData({ myData, isUpdating }: FormMyData) {
   return (
     <>
       <h2 className={css.title}>Your Information</h2>
+
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => {
@@ -52,6 +55,7 @@ export function FormMyData({ myData, isUpdating }: FormMyData) {
       >
         {(formik) => (
           <Form className={css.root}>
+            <img src={icon} alt="" className={css.icon} />
             <MyTextInput
               name="fullname"
               type="text"
@@ -61,6 +65,7 @@ export function FormMyData({ myData, isUpdating }: FormMyData) {
               name="email"
               type="text"
               placeholder={stateLogin["email"]}
+              disable={true}
             />
             <MyTextInput
               name="password1"
