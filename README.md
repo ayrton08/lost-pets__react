@@ -4,6 +4,14 @@
 
 Web app to report lost pets by using geographic location
 
+<p align="center" width="100%">
+<img  src="https://github.com/ayrton08/lost-pets__react/blob/main/assets/p1_2.png" width="32%" height='240px'>
+<img  src="https://raw.githubusercontent.com/ayrton08/lost-pets__react/main/assets/p1_1.png" width="32%" height='240px'>
+<img  src="https://raw.githubusercontent.com/ayrton08/lost-pets__react/main/assets/p1_4.png" width="32%" height='240px'>
+</p>
+
+
+
 ## Link to WebApp
 
 [Enlace a la demo](https://apx-dwf-m8.firebaseapp.com/) - URL: https://apx-dwf-m8.firebaseapp.com
