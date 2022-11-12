@@ -7,6 +7,11 @@ import { state } from "../../lib/atoms";
 import { useRecoilState } from "recoil";
 import { ButtonClose } from "../../ui/button-close-session/button-close-session";
 import { login } from "../../hooks/useLogin";
+import { ToggleButton } from "@mui/material";
+
+// import icon from "./icon.png";
+
+import ViewListIcon from "@mui/icons-material/ViewList";
 
 export function Header() {
   const navigate = useNavigate();
@@ -26,11 +31,22 @@ export function Header() {
     <div>
       <header className={css.root}>
         <Link to="/home" className={css.logo}>
+          {/* <img src={icon} alt="" /> */}
           🐶
         </Link>
-        <button className={css.btn} onClick={openModal}>
+
+        <ToggleButton
+          size="large"
+          value="list"
+          aria-label="Large sizes"
+          style={{ border: "none", fontSize: "200px" }}
+          onClick={openModal}
+        >
+          <ViewListIcon />
+        </ToggleButton>
+        {/* <button className={css.btn} onClick={openModal}>
           ☰
-        </button>
+        </button> */}
         {!stateUser ? (
           <MenuModal isOpen={isOpen} closeModal={closeModal}>
             <Link to="/login" onClick={closeModal} className={css.links}>

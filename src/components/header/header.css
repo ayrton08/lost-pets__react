@@ -1,15 +1,9 @@
 .root {
-  background: linear-gradient(#566573, #43a047);
+  background: linear-gradient(#11998e, #38ef7d);
   display: flex;
   justify-content: space-between;
   height: 60px;
   padding: 10px;
-}
-@media (min-width: 600px) {
-  .root {
-    height: 90px;
-    padding: 10px;
-  }
 }
 
 .logo {
@@ -20,8 +14,7 @@
 @media (min-width: 600px) {
   .logo {
     padding-left: 10px;
-    padding-bottom: 10px;
-    font-size: 45px;
+    font-size: 30px;
   }
 }
 
