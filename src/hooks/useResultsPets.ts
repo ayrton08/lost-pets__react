@@ -25,7 +25,7 @@ export function useResultsPets(): Response {
     if (lat && lng) {
       setIsLoading(true);
       const response = await fetch(
-        `https://dwf-m7-postgre.herokuapp.com/api/v1/pets/find-by-location?lat=${lat}&lng=${lng}`,
+        `https://lost-pets-production.up.railway.app/api/v1/pets/find-by-location?lat=${lat}&lng=${lng}`,
         {
           method: "get",
           headers: {

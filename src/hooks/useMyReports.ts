@@ -14,7 +14,7 @@ export function useMyReports(): Array<any> {
   async function reportsFetch() {
     setIsLoading(true);
     const res = await fetch(
-      `https://dwf-m7-postgre.herokuapp.com/api/v1/users/my-pets`,
+      `https://lost-pets-production.up.railway.app/api/v1/users/my-pets`,
       {
         method: "GET",
         headers: {

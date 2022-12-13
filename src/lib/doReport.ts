@@ -1,6 +1,6 @@
 export async function doReport(dataForm: object, token: string) {
   const res = await fetch(
-    `https://dwf-m7-postgre.herokuapp.com/api/v1/pets/report-pet`,
+    `https://lost-pets-production.up.railway.app/api/v1/pets/report-pet`,
     {
       method: "POST",
       headers: {

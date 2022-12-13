@@ -1,7 +1,7 @@
 export async function dataUser() {
   const token = JSON.parse(localStorage.getItem("token"));
   const res = await fetch(
-    `https://dwf-m7-postgre.herokuapp.com/api/v1/auth/my-data`,
+    `https://lost-pets-production.up.railway.app/api/v1/auth/my-data`,
     {
       method: "GET",
       headers: {

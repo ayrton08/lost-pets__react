@@ -4,7 +4,7 @@ interface Props {
   password: string;
 }
 export const register = async ({ email, fullname, password }: Props) => {
-  const res = await fetch(`https://dwf-m7-postgre.herokuapp.com/api/v1/users`, {
+  const res = await fetch(`https://lost-pets-production.up.railway.app/api/v1/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

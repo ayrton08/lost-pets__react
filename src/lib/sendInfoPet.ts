@@ -1,6 +1,6 @@
 export async function sendInfoPet(params: object) {
   const res = await fetch(
-    `https://dwf-m7-postgre.herokuapp.com/api/v1/users/info-pet`,
+    `https://lost-pets-production.up.railway.app/api/v1/users/info-pet`,
     {
       method: "POST",
       headers: {

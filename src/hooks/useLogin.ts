@@ -7,7 +7,7 @@ export const login = atom({
 
 export async function useLogin(email: string, password: string) {
   const loginFetch = await fetch(
-    `https://dwf-m7-postgre.herokuapp.com/api/v1/auth/signin`,
+    `https://lost-pets-production.up.railway.app/api/v1/auth/signin`,
     {
       method: "POST",
       headers: {

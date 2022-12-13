@@ -2,7 +2,7 @@ export async function updateMyData(fullname: string, password: string) {
   const token = JSON.parse(localStorage.getItem("token"));
 
   const sendFormUpdate = await fetch(
-    `https://dwf-m7-postgre.herokuapp.com/api/v1/users/update`,
+    `https://lost-pets-production.up.railway.app/api/v1/users/update`,
     {
       method: "PATCH",
       headers: {

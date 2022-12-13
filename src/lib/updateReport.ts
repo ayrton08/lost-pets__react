@@ -5,7 +5,7 @@ export async function updateReport(
   idPet: string | object
 ) {
   const id = idPet;
-  await fetch(`https://dwf-m7-postgre.herokuapp.com/api/v1/pets/update/${id}`, {
+  await fetch(`https://lost-pets-production.up.railway.app/api/v1/pets/update/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
